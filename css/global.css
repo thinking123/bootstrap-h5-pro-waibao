@@ -2,6 +2,12 @@
 @charset "utf-8";
 /* CSS Document */
 
+#app{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
 body {
 	margin: 0px;
 	padding: 0px;
@@ -682,8 +688,7 @@ body {
 	background: #fcfcfc;
 	float: left;
 	position: relative;
-	margin: 85px 49px 45px;
-49px;
+	margin: 85px 49px 45px 49px;
 }
 .con1 .con1_nei .con1_xun .con1_xun_img {
 	position: absolute;
@@ -1474,7 +1479,7 @@ body {
 	-webkit-justify-content: center;
 }
 .fancybox .honor_img img {
-width:;
+/*width:;*/
 }
 .fancybox .honor_title {
 	font-size: 13px;
