@@ -86,6 +86,7 @@ $(document).ready(function(e) {
 		s=0;
 	});
 	$(".moxl_xun_img1").click(function(){
+		// alert('click')
 		$(".moxl_xun_img1").show();
 		$(this).hide();
 		$(".moxl_xun_img2").hide();
