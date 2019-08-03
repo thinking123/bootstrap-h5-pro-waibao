@@ -1,5 +1,6 @@
 // JavaScript Document
-$(document).ready(function(e) {
+alert("code")
+// $(document).ready(function(e) {
 	var url = window.location.href;		//获取当前URL
 	if(url.indexOf("/about")>=0){
 		$(".pcto_menu_xun ").eq(1).addClass('on');			
@@ -36,8 +37,8 @@ $(document).ready(function(e) {
 			}
 		}
 	}
-});
-$(document).ready(function(e) {
+// });
+// $(document).ready(function(e) {
 	//下拉菜单
     $(".menuicon").click(function(){
 	     $(".moxiala").slideToggle();	
@@ -46,9 +47,9 @@ $(document).ready(function(e) {
     $(".proxiala_chakan").click(function(){
 	     $(".proxiala_menu").slideToggle();	
 	});
-});
+// });
 
-$(document).ready(function(e) {
+// $(document).ready(function(e) {
 	var oldh=$(".indexabout_box").height();
 	
     $(".iaov .iaov2").click(function(){
@@ -61,9 +62,9 @@ $(document).ready(function(e) {
 		$(".iaov .iaov2").show();
 	    $(".indexabout_box").css({"height":"auto"});	
 	});
-});
+// });
 
-$(document).ready(function(e) {
+// $(document).ready(function(e) {
 	var zi=window.setInterval(function(){
 		$(".moxl").height(($(window).height()-50));
 		//$(".moxl_box").width(($(window).width()));
@@ -108,11 +109,11 @@ $(document).ready(function(e) {
 		a=-1;
 	});
 	
-});
+// });
 
 
 //招聘列表展开收起
-$(document).ready(function(e) {
+// $(document).ready(function(e) {
 	var oldind=-1,newind;
     $(".job_liebiao .job_liebiao_title").click(function(){
 	     newind=$(this).index();
@@ -124,4 +125,4 @@ $(document).ready(function(e) {
 			oldind=newind;
 		 }else{oldind=-1}
 	});
-});
+// });

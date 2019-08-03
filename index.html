@@ -209,7 +209,7 @@
 <script src="js/bootstrap.js"></script>
 <!--  <script src="js/npm.js"></script> -->
 <script src="js/indexglobal.js"></script>
-<script src="js/global.js"></script>
+<!--<script src="js/global.js"></script>-->
 <script src="js/http.js"></script>
 <script src="js/common.js"></script>
 <script>
@@ -287,9 +287,20 @@
                     self.newsIndices = self.index.newsIndices;
 
                     setTimeout(function () {
-                        self.initMobMenu()
+                        loadBootstrap()
                     }, 300)
+                    // loadBootstrap()
                 })
+
+
+
+                // $.getScript( "./js/global.js" , function (s) {
+                //     // var s = document.createElement("script");
+                //     // s.type = "text/javascript";
+                //     // s.src = "js/global.js";
+                //     // // Use any selector
+                //     // $("body").append(s);
+                // });
 
 
             },
