@@ -77,18 +77,9 @@
         </div>
         <div class="clear"></div>
         <div class="prosel">
-            <div class="prosel_nei">
+            <div class="prosel_nei" v-for="item in proTabs" :key="item.id" @click="handleProTabs" :class="{'on':selProTab==item.id}">
                 <div>
-                    产品分类
-                </div>
-                <div>
-                    产品分类
-                </div>
-                <div>
-                    产品分类
-                </div>
-                <div>
-                    产品分类
+                    {{item.categoryName}}
                 </div>
                 <div class="clear"></div>
             </div>
@@ -112,7 +103,7 @@
                     <div class="pxb_xun" :style="pxbXun">
 
 
-                        <a href="products_article.html" v-for="item in listProduct" :key="item.id">
+                        <a @click="handeToPro(item.id)" v-for="item in listProduct" :key="item.id">
                             <div class="pxb_xun_img sHoverItem">
                                 <div class="ban sIntro">
                                     <img src="picture/bg23.png"/>
@@ -255,6 +246,7 @@
                     ],
                     newsList:[],
                     selectedNews:0,
+                    selProTab:""
                 }
             },
             computed: {
@@ -269,6 +261,15 @@
                 },
                 newsItems2:function () {
                     return this.newsIndices[this.selectedNews].list.slice(2)
+                },
+                proTabs:function () {
+                    for(item of this.listColumn){
+                        if(item.categoryState == 3){
+                           return item.children
+                        }
+                    }
+
+                    return []
                 }
             },
             mounted() {
@@ -285,6 +286,9 @@
                     self.about = self.index.about;
                     self.newsIndices = self.index.newsIndices;
                     self.newsList = self.newsIndices[self.selectedNews].list
+
+
+
                     setTimeout(function () {
                         loadBootstrap()
                     }, 300)
@@ -292,6 +296,9 @@
             },
 
             methods: {
+                handleProTabs:function(item){
+                    this.selProTab = item.id
+                },
                 handleNewsItem:function( item){
                     console.log("e :" , item)
                     navPage("./news_article.html?id=" + item.id)
@@ -310,6 +317,9 @@
                     console.log("arr" , arr)
                     this.newsList = arr
                 },
+                handeToPro:function (id) {
+                    navPage("./products_article.html?id="+id)
+                }
             }
 
         })

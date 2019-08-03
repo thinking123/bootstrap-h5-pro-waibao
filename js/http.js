@@ -81,5 +81,5 @@ function getProductDes(productId) {
     var params = {
         "productId":productId
     }
-    return gethttp(url)
+    return gethttp(url , params)
 }
