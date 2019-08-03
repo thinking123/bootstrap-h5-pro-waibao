@@ -27,9 +27,13 @@ function gethttp(url , params) {
         if(!!data && isHttpOk(data.status)){
             return data.rows
         }else{
+            if(isErrorPage()){
+                return;
+            }
             var error = './error.html'
             var msg = {
-                message : !!data && !!data.message ? data.message : "获取数据失败"
+                message : !!data && !!data.message ? data.message : "获取数据失败",
+                status:!!data && !!data.status ? data.status : ""
             }
             error = addQuery(error , msg)
             navPage(error)
@@ -37,12 +41,35 @@ function gethttp(url , params) {
         }
     })
 }
-
+function isErrorPage(){
+    return location.href.indexOf("error") > -1
+}
 $(document).ajaxError(function myErrorHandler(event, xhr, ajaxOptions, thrownError) {
     // alert("There was an ajax error!");
 
 
+    if(isErrorPage()){
+        return;
+    }
     console.log("global error" , event)
+
+    var message = "Error"
+    var status = ""
+
+    if(xhr && xhr.responseJSON){
+        var message = xhr.responseJSON.error
+        var status = xhr.responseJSON.status
+    }
+    var error = './error.html'
+    var msg = {
+        message : !!message ? message : "获取数据失败",
+        status:status
+    }
+    error = addQuery(error , msg)
+    navPage(error)
+    return
+
+
 });
 
 function getKideDes(id , columnId) {

@@ -27,6 +27,9 @@
             <div>
                 {{msg}}
             </div>
+            <div v-if="{{status}}">
+                Status : {{status}}
+            </div>
         </div>
     </div>
 
@@ -93,7 +96,8 @@
                     pages: 0,
                     total: 0,
 
-                    msg: ""
+                    msg: "",
+                    status:""
 
                 }
             },
@@ -135,7 +139,8 @@
 
 
                 })
-                this.message = getParameterByName("message")
+                this.msg = getParameterByName("message")
+                this.status = getParameterByName("status")
 
                 // this.getFileList()
             },
