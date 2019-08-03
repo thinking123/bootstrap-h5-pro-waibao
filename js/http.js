@@ -1,3 +1,46 @@
 var baseUrl = "http://39.96.36.17:8080"
 
 
+function isHttpOk(status) {
+    return !!status && status.substring(0,1) == "2"
+}
+
+function addQuery(url , params) {
+    var str = "";
+    for (var key in params) {
+        if (str != "") {
+            str += "&";
+        }
+        str += key + "=" + encodeURIComponent(obj[key]);
+    }
+
+    url = url + str
+
+    return url
+}
+function get(url , params) {
+    url = addQuery(url , params)
+    return $.get(url).then(function (data) {
+        if(!!data && isHttpOk(data.status)){
+            return data.rows
+        }else{
+            var error = './error.html'
+            var msg = {
+                message : !!data && !!data.message ? data.message : "获取数据失败"
+            }
+            error = addQuery(error , msg)
+            navPage(error)
+            return
+        }
+    })
+}
+function getKideDes() {
+    url = "/api/index/kideDes"
+    var url = baseUrl + "/api/index"
+    console.log('url', url)
+    return $.get(url).then(function (data) {
+
+    })
+}
+
+
