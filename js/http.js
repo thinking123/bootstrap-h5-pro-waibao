@@ -60,3 +60,10 @@ function getProduct(productId , pageNum) {
     }
     return gethttp(url)
 }
+function getProductDes(productId) {
+    var url = baseUrl + "/api/index/productDes"
+    var params = {
+        "productId":productId
+    }
+    return gethttp(url)
+}

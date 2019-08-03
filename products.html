@@ -57,6 +57,7 @@
                 <div class="proboxline_box">
                     <a
                     v-for="item in productList" :key="item.id"
+                    @click="handleProDetail(item.id)"
                     >
                         <div class="proimg_img">
                             <img :src="item.cover"/>
@@ -210,6 +211,12 @@
                             loadBootstrap()
                         }, 300)
                     })
+                },
+                handlePhoneMenu:function (e) {
+                    handleSubMenuPhone(e, this.index)
+                },
+                handleProDetail:function (id) {
+                    navPage("./products_article.html?id="+id)
                 }
             }
         })
