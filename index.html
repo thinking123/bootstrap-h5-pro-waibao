@@ -170,7 +170,7 @@
         <div class="clear"></div>
         <div class="newssel">
             <div class="newssel_nei">
-                <div class="newssel_nei_op" v-for="(item , index) in newsIndices" :key="index" :class="{'active':(index == selectedNews)}" @click="selectedNews=index">
+                <div class="newssel_nei_op" v-for="(item , index) in newsIndices" :key="index" :class="{'active':(index == selectedNews)}" @click="handleTabNews(index)">
                     {{item.name}}
                 </div>
             </div>
@@ -178,7 +178,7 @@
         <div class="indexnesqiehuan">
             <div class="newsxxk">
 
-                <a @click="handleNewsItem(item)" v-for="item in newsItems1" :key="item.id">
+                <a @click="handleNewsItem(item)" v-for="item in newsList" :key="item.id">
                     <div class="newsxxk_img">
                         <img :src="item.coverImg" width="170px" height="170px"/>
                     </div>
@@ -250,9 +250,10 @@
                     listProduct: [],
                     webcompany: {},
                     about: '',
-                    newsIndices: [{
-                        list:[]
-                    }],
+                    newsIndices: [
+
+                    ],
+                    newsList:[],
                     selectedNews:0,
                 }
             },
@@ -263,7 +264,8 @@
                     }
                 },
                 newsItems1:function () {
-                    return this.newsIndices[this.selectedNews].list.slice(0 )
+                    console.log('this.newsIndices[this.selectedNews]' ,this.newsIndices[this.selectedNews].list)
+                    return this.newsIndices[this.selectedNews].list
                 },
                 newsItems2:function () {
                     return this.newsIndices[this.selectedNews].list.slice(2)
@@ -282,7 +284,7 @@
                     self.webcompany = self.index.webcompany;
                     self.about = self.index.about;
                     self.newsIndices = self.index.newsIndices;
-
+                    self.newsList = self.newsIndices[self.selectedNews].list
                     setTimeout(function () {
                         loadBootstrap()
                     }, 300)
@@ -292,6 +294,7 @@
             methods: {
                 handleNewsItem:function( item){
                     console.log("e :" , item)
+                    navPage("./news_article.html?id=" + item.id)
 
                 },
                 handleSubMenu:function(item , sub){
@@ -299,7 +302,14 @@
                 },
                 handlePhoneMenu:function (e) {
                     handleSubMenuPhone(e, this.index)
-                }
+                },
+                handleTabNews:function(index){
+                    // alert(index)
+                    this.selectedNews = index
+                    var arr = [].concat(this.newsIndices[this.selectedNews].list)
+                    console.log("arr" , arr)
+                    this.newsList = arr
+                },
             }
 
         })
