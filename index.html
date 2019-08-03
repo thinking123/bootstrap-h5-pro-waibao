@@ -29,14 +29,14 @@
         <div class="pcto_box pc">
             <a href="" class="fl pcto_logo"><img src="picture/logo.png" height="55"/></a>
             <div class="pcto_menu">
-                <div class="pcto_menu_xun yxl " :class="{'yxl':(item.children && item.children.length > 0)}" v-for="item in listColumn" :key="item.id">
+                <div class="pcto_menu_xun yxl " :class="{'yxl':(item.children && item.children.length > 0)}"
+                     v-for="item in listColumn" :key="item.id">
                     <a href="about.html" class="pcto_menu_a">{{item.categoryName}}</a>
                     <div class="pcto_xl" v-if="item.children && item.children.length > 0">
                         <a href="about.html" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
                     </div>
                     <div class="pcto_bg"></div>
                 </div>
-
 
 
             </div>
@@ -51,88 +51,18 @@
         <div class="moxl_box">
 
             <div class="moxl_xun" v-for="item in listColumn" :key="item.id">
-                <div class="moxl_xun_icon"  >
+                <div class="moxl_xun_icon">
                     <img src="picture/bg39.png" class="moxl_xun_img1"/>
                     <img src="picture/bg40.png" class="moxl_xun_img2"/>
                 </div>
                 <a href="about.html" class="moxl_xun_title">{{item.categoryName}}</a>
-                <div class="moxl_erji"  v-if="item.children && item.children.length > 0">
+                <div class="moxl_erji" v-if="item.children && item.children.length > 0">
                     <a href="about.html" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
 
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
             </div>
-<!--            -->
-<!--            -->
-<!--            <div class="moxl_xun">-->
-<!--                <a href="index.html" class="moxl_xun_title">首页</a>-->
-<!--                <div class="clear"></div>-->
-<!--            </div>-->
-<!--            <div class="moxl_xun">-->
-<!--                <div class="moxl_xun_icon">-->
-<!--                    <img src="picture/bg39.png" class="moxl_xun_img1"/>-->
-<!--                    <img src="picture/bg40.png" class="moxl_xun_img2"/>-->
-<!--                </div>-->
-<!--                <a href="about.html" class="moxl_xun_title">关于我们</a>-->
-<!--                <div class="moxl_erji">-->
-<!--                    <a href="about.html">公司简介</a>-->
-<!--                    <a href="about.html">企业文化</a>-->
-<!--                    <a href="about.html">公司资质</a>-->
-<!--                    <div class="clear"></div>-->
-<!--                </div>-->
-<!--                <div class="clear"></div>-->
-<!--            </div>-->
-<!--            <div class="moxl_xun">-->
-<!--                <div class="moxl_xun_icon">-->
-<!--                    <img src="picture/bg39.png" class="moxl_xun_img1"/>-->
-<!--                    <img src="picture/bg40.png" class="moxl_xun_img2"/>-->
-<!--                </div>-->
-<!--                <a href="products.html" class="moxl_xun_title">产品中心</a>-->
-<!--                <div class="moxl_erji">-->
-<!--                    <a href="products.html">产品分类</a>-->
-<!--                    <a href="products.html">产品分类</a>-->
-<!--                    <a href="products.html">产品分类</a>-->
-<!--                    <a href="products.html">产品分类</a>-->
-<!--                    <div class="clear"></div>-->
-<!--                </div>-->
-<!--                <div class="clear"></div>-->
-<!--            </div>-->
-<!--            <div class="moxl_xun">-->
-<!--                <div class="moxl_xun_icon">-->
-<!--                    <img src="picture/bg39.png" class="moxl_xun_img1"/>-->
-<!--                    <img src="picture/bg40.png" class="moxl_xun_img2"/>-->
-<!--                </div>-->
-<!--                <a href="news.html" class="moxl_xun_title">新闻动态</a>-->
-<!--                <div class="moxl_erji">-->
-<!--                    <a href="news.html">公司新闻</a>-->
-<!--                    <a href="news.html">行业新闻</a>-->
-<!--                    <div class="clear"></div>-->
-<!--                </div>-->
-<!--                <div class="clear"></div>-->
-<!--            </div>-->
-<!--            <div class="moxl_xun">-->
-<!--                <div class="moxl_xun_icon">-->
-<!--                    <img src="picture/bg39.png" class="moxl_xun_img1"/>-->
-<!--                    <img src="picture/bg40.png" class="moxl_xun_img2"/>-->
-<!--                </div>-->
-<!--                <a href="" class="moxl_xun_title">服务支持</a>-->
-<!--                <div class="moxl_erji">-->
-<!--                    <div class="clear"></div>-->
-<!--                </div>-->
-<!--                <div class="clear"></div>-->
-<!--            </div>-->
-<!--            <div class="moxl_xun">-->
-<!--                <div class="moxl_xun_icon">-->
-<!--                    <img src="picture/bg39.png" class="moxl_xun_img1"/>-->
-<!--                    <img src="picture/bg40.png" class="moxl_xun_img2"/>-->
-<!--                </div>-->
-<!--                <a href="contact.html" class="moxl_xun_title">联系我们</a>-->
-<!--                <div class="moxl_erji">-->
-<!--                    <div class="clear"></div>-->
-<!--                </div>-->
-<!--                <div class="clear"></div>-->
-<!--            </div>-->
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -150,12 +80,6 @@
                 <li v-for="item in listCarousel" :key="item.id"
                     style="background: no-repeat center top; background-size:cover;"
                     v-bind:style="{ backgroundImage: 'url(' + item.url + ')' }"/>
-                <!--     <li v-if="index.listCarousel"-->
-
-                <!--             v-bind:style="{ backgroundImage: 'url(' + index.listCarousel[0].url + ')' }"-->
-                <!--             style="background: no-repeat center top; background-size:cover;"></li>-->
-                <!--     <li style="background:url(images/1-1f5121340030-l.jpg) no-repeat center top; background-size:cover;"></li>-->
-                <!--     <li style="background:url(images/1-1f5121339510-l.jpg) no-repeat center top; background-size:cover;"></li>-->
             </ul>
             <div class="dian">
                 <ul class="ul_dian">
@@ -191,80 +115,80 @@
                     </div>
                 </div>
             </a>
-<!--            -->
-<!--            <a href="javascript:void(0)">-->
-<!--                <div>-->
-<!--                    <div class="index1_img">-->
-<!--                        <div>-->
-<!--                            <img src="picture/bg19.png"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="index1_title">-->
-<!--                        基础知识-->
-<!--                    </div>-->
-<!--                    <div class="index1_en">-->
-<!--                        Basic knowledge-->
-<!--                    </div>-->
-<!--                    <div class="index1_bottom">-->
-<!--                        <div></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </a>-->
-<!--            <a href="javascript:void(0)">-->
-<!--                <div>-->
-<!--                    <div class="index1_img">-->
-<!--                        <div>-->
-<!--                            <img src="picture/bg20.png"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="index1_title">-->
-<!--                        故障处理-->
-<!--                    </div>-->
-<!--                    <div class="index1_en">-->
-<!--                        Fault handling-->
-<!--                    </div>-->
-<!--                    <div class="index1_bottom">-->
-<!--                        <div></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </a>-->
-<!--            <div class="clear sss"></div>-->
-<!--            <a href="javascript:void(0)">-->
-<!--                <div>-->
-<!--                    <div class="index1_img">-->
-<!--                        <div>-->
-<!--                            <img src="picture/bg21.png"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="index1_title">-->
-<!--                        维护保养-->
-<!--                    </div>-->
-<!--                    <div class="index1_en">-->
-<!--                        Maintenance-->
-<!--                    </div>-->
-<!--                    <div class="index1_bottom">-->
-<!--                        <div></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </a>-->
-<!--            <a href="javascript:void(0)">-->
-<!--                <div>-->
-<!--                    <div class="index1_img">-->
-<!--                        <div>-->
-<!--                            <img src="picture/bg22.png"/>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="index1_title">-->
-<!--                        资料文档-->
-<!--                    </div>-->
-<!--                    <div class="index1_en">-->
-<!--                        Data download-->
-<!--                    </div>-->
-<!--                    <div class="index1_bottom">-->
-<!--                        <div></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </a>-->
+            <!--            -->
+            <!--            <a href="javascript:void(0)">-->
+            <!--                <div>-->
+            <!--                    <div class="index1_img">-->
+            <!--                        <div>-->
+            <!--                            <img src="picture/bg19.png"/>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_title">-->
+            <!--                        基础知识-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_en">-->
+            <!--                        Basic knowledge-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_bottom">-->
+            <!--                        <div></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </a>-->
+            <!--            <a href="javascript:void(0)">-->
+            <!--                <div>-->
+            <!--                    <div class="index1_img">-->
+            <!--                        <div>-->
+            <!--                            <img src="picture/bg20.png"/>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_title">-->
+            <!--                        故障处理-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_en">-->
+            <!--                        Fault handling-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_bottom">-->
+            <!--                        <div></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </a>-->
+            <!--            <div class="clear sss"></div>-->
+            <!--            <a href="javascript:void(0)">-->
+            <!--                <div>-->
+            <!--                    <div class="index1_img">-->
+            <!--                        <div>-->
+            <!--                            <img src="picture/bg21.png"/>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_title">-->
+            <!--                        维护保养-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_en">-->
+            <!--                        Maintenance-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_bottom">-->
+            <!--                        <div></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </a>-->
+            <!--            <a href="javascript:void(0)">-->
+            <!--                <div>-->
+            <!--                    <div class="index1_img">-->
+            <!--                        <div>-->
+            <!--                            <img src="picture/bg22.png"/>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_title">-->
+            <!--                        资料文档-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_en">-->
+            <!--                        Data download-->
+            <!--                    </div>-->
+            <!--                    <div class="index1_bottom">-->
+            <!--                        <div></div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </a>-->
         </div>
     </div>
     <div class="indexpro">
@@ -310,7 +234,7 @@
                     </div>
                 </div>
                 <div class="proxxk_xun_box">
-                    <div class="pxb_xun"  :style="pxbXun">
+                    <div class="pxb_xun" :style="pxbXun">
 
 
                         <a href="products_article.html" v-for="item in listProduct" :key="item.id">
@@ -329,7 +253,6 @@
                         </a>
 
 
-
                     </div>
                 </div>
             </div>
@@ -346,12 +269,7 @@
         </div>
         <div class="clear"></div>
         <div class="indexabout_box">
-            <div class="indexabout_text fl">
-                某某是一家专业从事企业营销策划、电子商务运营服务的公司，主要业务包含精品网站制作、电子商务平台托管、百度竞价外包、 我们主要提供以下几点服务： a 淘宝开店与装修 b 网站建设 c 百度竞价外包 d
-                网络营销外包 1、以真心换真情，站在客户角度，客户的满意就是我们的追求，切实结合客户营销情况，制定营销方案。 2、团队网络营销实战经验丰富，可以规避很客户在网络营销中不必要的投入。节省推广费用，增强营销效果。
-                3、专业铸就品质，服务赢得信赖，专业的技术水平是我们的根本，贴心的服务是我们和客户之间的友谊桥梁。
-                一直专注于互联网品牌建设，我们团队的成员曾务于国内优秀广告公司及互联网公司业务类型涉及WEB视觉、交互设计、移动终端用户体验等质量和信誉是我们存在的基石。我们注重客户提出的每个要求，充分考虑每一个细节，积极的做好服务，努力开拓更好的视
-                ...
+            <div class="indexabout_text fl" v-html="about">
                 <p style="text-align:center;"><a href="about.html" class="indexabout_link">查看详细&gt;&gt;</a></p>
             </div>
             <div class="indexabout_img fr">
@@ -531,7 +449,7 @@
                     {{item.categoryName}}
                 </div>
                 <div class="footer1_xun1_box">
-                    <a href="about.html"  v-for="sub in item.children">{{sub.categoryName}}</a>
+                    <a href="about.html" v-for="sub in item.children">{{sub.categoryName}}</a>
                     <div class=" clear"></div>
                 </div>
             </div>
@@ -667,6 +585,9 @@
     // new Profile().$mount('#app')
 
 
+    //GET /api/index/kideDes   这里点击head的主标题的子菜单获取 文章列表
+    //然后列表选择显示文章
+
     var app = new Vue({
         el: '#app',
         data: function () {
@@ -680,13 +601,15 @@
                 listAdvantage: [],
                 listColumn: [],
                 listProduct: [],
-                webcompany:{}
+                webcompany: {},
+                about: '',
+                newsIndices: []
             }
         },
-        computed:{
-            pxbXun:function(){
+        computed: {
+            pxbXun: function () {
                 return {
-                    width:(this.listProduct.length * 283 + "px")
+                    width: (this.listProduct.length * 283 + "px")
                 }
             }
         },
@@ -702,41 +625,129 @@
                 self.listProduct = self.index.listProduct;
                 self.listColumn = self.index.listColumn;
                 self.webcompany = self.index.webcompany;
+                self.about = self.index.about;
+                self.newsIndices = self.index.newsIndices;
 
                 console.log('this cou', self.listColumn)
 
                 setTimeout(function () {
                     self.initMobMenu()
-                } , 300)
+                }, 300)
 
             })
 
 
         },
-        methods:{
-            initMobMenu:function(){
-                var a=-1,ind;
-                $(".moxl_xun_img1").click(function(){
+        /*
+        *  "newsIndices": [
+      {
+        "list": [
+          {
+            "content": "string",
+            "contenttype": "string",
+            "coverImg": "string",
+            "createTime": "string",
+            "field": "string",
+            "id": 0,
+            "isDel": 0,
+            "sort": 0,
+            "subTitle": "string",
+            "title": "string",
+            "type": 0,
+            "typeName": "string"
+          }
+        ],
+        "name": "string"
+      }
+    ],
+    "webcompany": {
+      "address": "string",
+      "email": "string",
+      "id": 0,
+      "phone": "string"
+        * */
+        methods: {
+
+            formateUrl: function (uri, key, value) {
+                var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+                var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+                if (uri.match(re)) {
+                    return uri.replace(re, '$1' + key + "=" + value + '$2');
+                } else {
+                    return uri + separator + key + "=" + value;
+                }
+            },
+            getNewsList: function (id, columnId) {
+                var url = baseUrl + "/api/index/newsList"
+
+                url = this.formateUrl(url , "id" , id)
+                url = this.formateUrl(url , "columnId" , columnId)
+
+                console.log('formaturl' , url)
+
+                var self = this;
+                $.get(url, function (data) {
+                    console.log('data', data)
+                    self.index = data.rows;
+                    self.listCarousel = self.index.listCarousel;
+                    self.listAdvantage = self.index.listAdvantage;
+                    self.listProduct = self.index.listProduct;
+                    self.listColumn = self.index.listColumn;
+                    self.webcompany = self.index.webcompany;
+                    self.about = self.index.about;
+                    self.newsIndices = self.index.newsIndices;
+
+                    console.log('this cou', self.listColumn)
+
+                    setTimeout(function () {
+                        self.initMobMenu()
+                    }, 300)
+
+                })
+                /*
+                * {
+  "message": "string",
+  "path": "string",
+  "rows": {
+    "cnName": "string",
+    "enName": "string",
+    "list": [
+      {}
+    ],
+    "listNews": [
+      {}
+    ],
+    "nowColumn": "string",
+    "nowColumnId": "string"
+  },
+  "status": "string"
+}*/
+
+
+            },
+            initMobMenu: function () {
+                var a = -1, ind;
+                $(".moxl_xun_img1").click(function () {
                     // alert('click')
                     $(".moxl_xun_img1").show();
                     $(this).hide();
                     $(".moxl_xun_img2").hide();
                     $(this).next().show();
                     $(".moxl_erji").slideUp();
-                    ind=$(this).parents(".moxl_xun").index();
-                    if(a!=ind){
+                    ind = $(this).parents(".moxl_xun").index();
+                    if (a != ind) {
                         $(this).parents(".moxl_xun").find(".moxl_erji").slideDown();
-                        a=ind;
-                    }else{
-                        a=-1;
+                        a = ind;
+                    } else {
+                        a = -1;
                     }
                 });
-                $(".moxl_xun_img2").click(function(){
+                $(".moxl_xun_img2").click(function () {
                     $(".moxl_xun_img1").show();
                     $(this).hide();
                     $(".moxl_xun_img2").hide();
                     $(".moxl_erji").slideUp();
-                    a=-1;
+                    a = -1;
                 });
             }
         }
