@@ -21,3 +21,29 @@ function formateUrl(uri, key, value) {
 function navPage(url){
     window.location.href = url
 }
+function isFunction(functionToCheck) {
+    return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+}
+function loadHeaderFooter(cb){
+
+    // console.log("loader pages")
+    var d1 = new $.Deferred();
+    var d2 = new $.Deferred();
+
+
+
+    $.when(d1, d2).then(function() {
+        isFunction(cb) && cb()
+    });
+    $.get('./fragments/footer.html', function(ele) {
+        console.log("load footer")
+        $("#footer").replaceWith(ele);
+        d2.resolve();
+    });
+    $.get('./fragments/header.html', function(ele) {
+        console.log("load header" )
+        $("#header").replaceWith(ele);
+        d1.resolve(); });
+
+
+}

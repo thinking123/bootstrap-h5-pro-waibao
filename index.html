@@ -15,59 +15,7 @@
 </head>
 <body>
 <div id="app">
-
-    <div class="pctop1 hidden-xs">
-        <div class="pctop1_nei">
-            <div class="fl pctop1_left  pc">
-                欢迎光临本站
-            </div>
-            <div class="fr pctop1_left  pc">
-                您暂时没有询盘信息！
-            </div>
-        </div>
-    </div>
-    <div class="pcto pc">
-        <div class="pcto_box pc">
-            <a href="" class="fl pcto_logo"><img src="picture/logo.png" height="55"/></a>
-            <div class="pcto_menu">
-                <div class="pcto_menu_xun yxl " :class="{'yxl':(item.children && item.children.length > 0)}"
-                     v-for="item in listColumn" :key="item.id">
-                    <a class="pcto_menu_a">{{item.categoryName}}</a>
-                    <div class="pcto_xl" v-if="item.children && item.children.length > 0">
-                        <a @click="handleSubMenu(item , sub)" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
-                    </div>
-                    <div class="pcto_bg"></div>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
-    <div class="mot mo">
-        <a href="" class="molo"><img src="picture/logo.png"/></a>
-        <img src="picture/bg37.png" class="momenuicon openicon"/>
-        <img src="picture/bg36.png" class="momenuicon cloesicon"/>
-    </div>
-    <div class="moxl">
-        <div class="moxl_box">
-
-            <div class="moxl_xun" v-for="item in listColumn" :key="item.id">
-                <div class="moxl_xun_icon">
-                    <img src="picture/bg39.png" class="moxl_xun_img1"/>
-                    <img src="picture/bg40.png" class="moxl_xun_img2"/>
-                </div>
-                <a  class="moxl_xun_title">{{item.categoryName}}</a>
-                <div class="moxl_erji" v-if="item.children && item.children.length > 0">
-                    <a @click="handleSubMenu(item , sub)" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
-
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
+    <div id="header"></div>
     <div id="flexslider">
         <div id="ban">
             <div class="jiantou_box">
@@ -116,80 +64,6 @@
                     </div>
                 </div>
             </a>
-            <!--            -->
-            <!--            <a href="javascript:void(0)">-->
-            <!--                <div>-->
-            <!--                    <div class="index1_img">-->
-            <!--                        <div>-->
-            <!--                            <img src="picture/bg19.png"/>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_title">-->
-            <!--                        基础知识-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_en">-->
-            <!--                        Basic knowledge-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_bottom">-->
-            <!--                        <div></div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </a>-->
-            <!--            <a href="javascript:void(0)">-->
-            <!--                <div>-->
-            <!--                    <div class="index1_img">-->
-            <!--                        <div>-->
-            <!--                            <img src="picture/bg20.png"/>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_title">-->
-            <!--                        故障处理-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_en">-->
-            <!--                        Fault handling-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_bottom">-->
-            <!--                        <div></div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </a>-->
-            <!--            <div class="clear sss"></div>-->
-            <!--            <a href="javascript:void(0)">-->
-            <!--                <div>-->
-            <!--                    <div class="index1_img">-->
-            <!--                        <div>-->
-            <!--                            <img src="picture/bg21.png"/>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_title">-->
-            <!--                        维护保养-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_en">-->
-            <!--                        Maintenance-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_bottom">-->
-            <!--                        <div></div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </a>-->
-            <!--            <a href="javascript:void(0)">-->
-            <!--                <div>-->
-            <!--                    <div class="index1_img">-->
-            <!--                        <div>-->
-            <!--                            <img src="picture/bg22.png"/>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_title">-->
-            <!--                        资料文档-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_en">-->
-            <!--                        Data download-->
-            <!--                    </div>-->
-            <!--                    <div class="index1_bottom">-->
-            <!--                        <div></div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </a>-->
         </div>
     </div>
     <div class="indexpro">
@@ -325,103 +199,7 @@
             <div class="clear"></div>
         </div>
     </div>
-    <div class="footer">
-        <div class="footer1">
-
-            <div class="fl footer1_xun1" v-for="item in listColumn" :key="item.id">
-                <div class="footer1_title">
-                    {{item.categoryName}}
-                </div>
-                <div class="footer1_xun1_box">
-                    <a href="about.html" v-for="sub in item.children">{{sub.categoryName}}</a>
-                    <div class=" clear"></div>
-                </div>
-            </div>
-
-            <div class="fr footer1_xun2">
-                <div class="footer1_title">
-                    联系我们
-                </div>
-                <table cellpadding="0" cellspacing="0">
-                    <tbody>
-                    <tr>
-                        <td height="60" width="32" class="footericon"><img src="picture/bg8.png"/></td>
-                        <td><span> <p style="line-height:12px;">TELEPHONE</p> <p
-                                style="font-size:21px;color:#FFFFFF; font-weight:bolder; line-height:21px;">{{webcompany.telephone}}</p> </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" height="25" class="footericon"><img src="picture/bg9.png"/></td>
-                        <td><span>公司地址：{{webcompany.address}}</span></td>
-                    </tr>
-                    <tr>
-                        <td align="right" height="25" class="footericon"><img src="picture/bg10.png"/></td>
-                        <td><span>邮箱：{{webcompany.email}}</span></td>
-                    </tr>
-                    <tr>
-                        <td align="right" height="25" class="footericon"><img src="picture/bg11.png"/></td>
-                        <td><span>手机：{{webcompany.telephone}}</span></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class=" clear"></div>
-            <div class="smcy hidden-xs hidden-sm">
-                <div class="container">
-                    <div class="row clearfix">
-                        <div class="col-md-12 column text-center">
-                            <span>商盟成员：</span>
-                            <a href="#">网页特效</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer2 hidden-xs hidden-sm">
-            <div class="container">
-                <div class="row clearfix">
-                    <div class="copyright col-md-12 column text-center">
-                        Copyright&copy;某某机械设备有限公司(<a title="复制链接" href="javascript:copyURL();" target="_parent"
-                                                     rel="nofollow">复制链接</a>) 某某机械设备有限公司
-                        <br/>
-                        机械设备哪家强？机械设备哪家强？机械设备哪家强？机械设备哪家强？
-                        <br/>
-                        备案号：<a href="" target="_blank" rel="nofollow"></a>&nbsp;&nbsp;
-                        <div class="cityspread"><strong>热门城市推广: </strong>
-                            <a>常州</a><a>无锡</a><a>苏州</a><a>上海</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="phonefooternav visible-xs visible-sm">
-        <ul>
-            <li>
-                <a rel="nofollow" href="">
-                    <i class="glyphicon glyphicon-earphone"></i>
-                    <span>一键拨号</span>
-                </a>
-            </li>
-            <li>
-                <a rel="nofollow" href="products.html">
-                    <i class="glyphicon glyphicon-th-large"></i>
-                    <span>产品项目</span>
-                </a>
-            </li>
-            <li>
-                <a rel="nofollow" href="news.html">
-                    <i class="glyphicon glyphicon-th-list"></i>
-                    <span>新闻资讯</span>
-                </a>
-            </li>
-            <li>
-                <a rel="nofollow" href="index.html">
-                    <i class="glyphicon glyphicon-home"></i>
-                    <span>返回首页</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <div id="footer"></div>
 </div>
 
 <!--  <script src="js/require.js"></script>-->
@@ -451,157 +229,47 @@
 </body>
 
 <script>
-    $(function () {
 
-    });
+    loadHeaderFooter(getVue)
 
-
-    // var Profile = Vue.extend({
-    //  template: '<div>{{lastName}}</div>',
-    //  data: function () {
-    //   return {
-    //    firstName: 'Walter',
-    //    lastName: 'White',
-    //    alias: 'Heisenberg'
-    //   }
-    //  }
-    // })
-    // // 创建 Profile 实例，并挂载到一个元素上。
-    // new Profile().$mount('#app')
-
-
-    //GET /api/index/kideDes   这里点击head的主标题的子菜单获取 文章列表
-    //然后列表选择显示文章
-
-    var app = new Vue({
-        el: '#app',
-        data: function () {
-            return {
-                name: '大漠',
-                count: 0, firstName: 'Walter',
-                lastName: 'White',
-                alias: 'Heisenberg',
-                // index:{},
-                listCarousel: [],
-                listAdvantage: [],
-                listColumn: [],
-                listProduct: [],
-                webcompany: {},
-                about: '',
-                newsIndices: [{
-                    list:[]
-                }],
-                selectedNews:0,
-            }
-        },
-        computed: {
-            pxbXun: function () {
+    function getVue(){
+        var app = new Vue({
+            el: '#app',
+            data: function () {
                 return {
-                    width: (this.listProduct.length * 283 + "px")
+                    name: '大漠',
+                    count: 0, firstName: 'Walter',
+                    lastName: 'White',
+                    alias: 'Heisenberg',
+                    // index:{},
+                    listCarousel: [],
+                    listAdvantage: [],
+                    listColumn: [],
+                    listProduct: [],
+                    webcompany: {},
+                    about: '',
+                    newsIndices: [{
+                        list:[]
+                    }],
+                    selectedNews:0,
                 }
             },
-            newsItems1:function () {
-                return this.newsIndices[this.selectedNews].list.slice(0 )
-            },
-            newsItems2:function () {
-                return this.newsIndices[this.selectedNews].list.slice(2)
-            }
-        },
-        mounted() {
-            var url = baseUrl + "/api/index"
-            console.log('url', url)
-            var self = this;
-            $.get(url, function (data) {
-                console.log('data', data)
-                self.index = data.rows;
-                self.listCarousel = self.index.listCarousel;
-                self.listAdvantage = self.index.listAdvantage;
-                self.listProduct = self.index.listProduct;
-                self.listColumn = self.index.listColumn;
-                self.webcompany = self.index.webcompany;
-                self.about = self.index.about;
-                self.newsIndices = self.index.newsIndices;
-
-                console.log('this cou', self.listColumn)
-
-                setTimeout(function () {
-                    self.initMobMenu()
-                }, 300)
-
-            })
-
-
-        },
-        /*
-        *  "newsIndices": [
-      {
-        "list": [
-          {
-            "content": "string",
-            "contenttype": "string",
-            "coverImg": "string",
-            "createTime": "string",
-            "field": "string",
-            "id": 0,
-            "isDel": 0,
-            "sort": 0,
-            "subTitle": "string",
-            "title": "string",
-            "type": 0,
-            "typeName": "string"
-          }
-        ],
-        "name": "string"
-      }
-    ],
-    "webcompany": {
-      "address": "string",
-      "email": "string",
-      "id": 0,
-      "phone": "string"
-        * */
-        methods: {
-            handleNewsItem:function( item){
-                console.log("e :" , item)
-
-            },
-            handleSubMenu:function(item , sub){
-                /*
-                * categoryName (string, optional): 名称 ,
-categoryState (integer, optional): 类型 1 富文本 3产品 4资料下载 5新闻 ,
-children (Array[首页栏目], optional),
-enName (string, optional): 英文名 ,
-id (integer, optional): 主键 ,
-parentId (integer, optional): 上级编号 ,
-state (integer, optional)*/
-                console.log("item" , "sub" , item , sub)
-                var url = ""
-                switch (item.categoryState) {
-                    case "1":
-                        break
-                    case "3":
-                        break
-                    case "4":
-                        break
-                    case 5:
-                        url = "./news.html"
-                        url = formateUrl(url , "id" , item.id)
-                        url = formateUrl(url , "columnId" , sub.id)
-                        alert( url)
-                        break
-                }
-                if(!!url){
-                    navPage(url)
+            computed: {
+                pxbXun: function () {
+                    return {
+                        width: (this.listProduct.length * 283 + "px")
+                    }
+                },
+                newsItems1:function () {
+                    return this.newsIndices[this.selectedNews].list.slice(0 )
+                },
+                newsItems2:function () {
+                    return this.newsIndices[this.selectedNews].list.slice(2)
                 }
             },
-            getNewsList: function (id, columnId) {
-                var url = baseUrl + "/api/index/newsList"
-
-                url = this.formateUrl(url , "id" , id)
-                url = this.formateUrl(url , "columnId" , columnId)
-
-                console.log('formaturl' , url)
-
+            mounted() {
+                var url = baseUrl + "/api/index"
+                console.log('url', url)
                 var self = this;
                 $.get(url, function (data) {
                     console.log('data', data)
@@ -621,59 +289,171 @@ state (integer, optional)*/
                     }, 300)
 
                 })
-                /*
-                * {
-  "message": "string",
-  "path": "string",
-  "rows": {
-    "cnName": "string",
-    "enName": "string",
-    "list": [
-      {}
-    ],
-    "listNews": [
-      {}
-    ],
-    "nowColumn": "string",
-    "nowColumnId": "string"
-  },
-  "status": "string"
-}*/
 
 
             },
-            initMobMenu: function () {
-                var a = -1, ind;
-                $(".moxl_xun_img1").click(function () {
-                    // alert('click')
-                    $(".moxl_xun_img1").show();
-                    $(this).hide();
-                    $(".moxl_xun_img2").hide();
-                    $(this).next().show();
-                    $(".moxl_erji").slideUp();
-                    ind = $(this).parents(".moxl_xun").index();
-                    if (a != ind) {
-                        $(this).parents(".moxl_xun").find(".moxl_erji").slideDown();
-                        a = ind;
-                    } else {
-                        a = -1;
+            /*
+            *  "newsIndices": [
+          {
+            "list": [
+              {
+                "content": "string",
+                "contenttype": "string",
+                "coverImg": "string",
+                "createTime": "string",
+                "field": "string",
+                "id": 0,
+                "isDel": 0,
+                "sort": 0,
+                "subTitle": "string",
+                "title": "string",
+                "type": 0,
+                "typeName": "string"
+              }
+            ],
+            "name": "string"
+          }
+        ],
+        "webcompany": {
+          "address": "string",
+          "email": "string",
+          "id": 0,
+          "phone": "string"
+            * */
+            methods: {
+                handleNewsItem:function( item){
+                    console.log("e :" , item)
+
+                },
+                handleSubMenu:function(item , sub){
+                    /*
+                    * categoryName (string, optional): 名称 ,
+    categoryState (integer, optional): 类型 1 富文本 3产品 4资料下载 5新闻 ,
+    children (Array[首页栏目], optional),
+    enName (string, optional): 英文名 ,
+    id (integer, optional): 主键 ,
+    parentId (integer, optional): 上级编号 ,
+    state (integer, optional)*/
+                    console.log("item" , "sub" , item , sub)
+                    var url = ""
+                    switch (item.categoryState) {
+                        case "1":
+                            break
+                        case "3":
+                            break
+                        case "4":
+                            break
+                        case 5:
+                            url = "./news.html"
+                            url = formateUrl(url , "id" , item.id)
+                            url = formateUrl(url , "columnId" , sub.id)
+                            alert( url)
+                            break
                     }
-                });
-                $(".moxl_xun_img2").click(function () {
-                    $(".moxl_xun_img1").show();
-                    $(this).hide();
-                    $(".moxl_xun_img2").hide();
-                    $(".moxl_erji").slideUp();
-                    a = -1;
-                });
+                    if(!!url){
+                        navPage(url)
+                    }
+                },
+                getNewsList: function (id, columnId) {
+                    var url = baseUrl + "/api/index/newsList"
+
+                    url = this.formateUrl(url , "id" , id)
+                    url = this.formateUrl(url , "columnId" , columnId)
+
+                    console.log('formaturl' , url)
+
+                    var self = this;
+                    $.get(url, function (data) {
+                        console.log('data', data)
+                        self.index = data.rows;
+                        self.listCarousel = self.index.listCarousel;
+                        self.listAdvantage = self.index.listAdvantage;
+                        self.listProduct = self.index.listProduct;
+                        self.listColumn = self.index.listColumn;
+                        self.webcompany = self.index.webcompany;
+                        self.about = self.index.about;
+                        self.newsIndices = self.index.newsIndices;
+
+                        console.log('this cou', self.listColumn)
+
+                        setTimeout(function () {
+                            self.initMobMenu()
+                        }, 300)
+
+                    })
+                    /*
+                    * {
+      "message": "string",
+      "path": "string",
+      "rows": {
+        "cnName": "string",
+        "enName": "string",
+        "list": [
+          {}
+        ],
+        "listNews": [
+          {}
+        ],
+        "nowColumn": "string",
+        "nowColumnId": "string"
+      },
+      "status": "string"
+    }*/
+
+
+                },
+                initMobMenu: function () {
+                    var a = -1, ind;
+                    $(".moxl_xun_img1").click(function () {
+                        // alert('click')
+                        $(".moxl_xun_img1").show();
+                        $(this).hide();
+                        $(".moxl_xun_img2").hide();
+                        $(this).next().show();
+                        $(".moxl_erji").slideUp();
+                        ind = $(this).parents(".moxl_xun").index();
+                        if (a != ind) {
+                            $(this).parents(".moxl_xun").find(".moxl_erji").slideDown();
+                            a = ind;
+                        } else {
+                            a = -1;
+                        }
+                    });
+                    $(".moxl_xun_img2").click(function () {
+                        $(".moxl_xun_img1").show();
+                        $(this).hide();
+                        $(".moxl_xun_img2").hide();
+                        $(".moxl_erji").slideUp();
+                        a = -1;
+                    });
+                }
             }
-        }
-        // methods: {
-        //  increase: function () {
-        //   this.count++
-        //  }
-        // }
-    })
+            // methods: {
+            //  increase: function () {
+            //   this.count++
+            //  }
+            // }
+        })
+    }
+
+    // var Profile = Vue.extend({
+    //  template: '<div>{{lastName}}</div>',
+    //  data: function () {
+    //   return {
+    //    firstName: 'Walter',
+    //    lastName: 'White',
+    //    alias: 'Heisenberg'
+    //   }
+    //  }
+    // })
+    // // 创建 Profile 实例，并挂载到一个元素上。
+    // new Profile().$mount('#app')
+
+
+    //GET /api/index/kideDes   这里点击head的主标题的子菜单获取 文章列表
+    //然后列表选择显示文章
+
+
 
     /*
     * {

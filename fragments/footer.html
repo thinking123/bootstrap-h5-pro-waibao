@@ -1,10 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+<div class="footer">
+    <div class="footer1">
+
+        <div class="fl footer1_xun1" v-for="item in listColumn" :key="item.id">
+            <div class="footer1_title">
+                {{item.categoryName}}
+            </div>
+            <div class="footer1_xun1_box">
+                <a href="about.html" v-for="sub in item.children">{{sub.categoryName}}</a>
+                <div class=" clear"></div>
+            </div>
+        </div>
+
+        <div class="fr footer1_xun2">
+            <div class="footer1_title">
+                联系我们
+            </div>
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="60" width="32" class="footericon"><img src="picture/bg8.png"/></td>
+                    <td><span> <p style="line-height:12px;">TELEPHONE</p> <p
+                            style="font-size:21px;color:#FFFFFF; font-weight:bolder; line-height:21px;">{{webcompany.telephone}}</p> </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" height="25" class="footericon"><img src="picture/bg9.png"/></td>
+                    <td><span>公司地址：{{webcompany.address}}</span></td>
+                </tr>
+                <tr>
+                    <td align="right" height="25" class="footericon"><img src="picture/bg10.png"/></td>
+                    <td><span>邮箱：{{webcompany.email}}</span></td>
+                </tr>
+                <tr>
+                    <td align="right" height="25" class="footericon"><img src="picture/bg11.png"/></td>
+                    <td><span>手机：{{webcompany.telephone}}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class=" clear"></div>
+        <div class="smcy hidden-xs hidden-sm">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column text-center">
+                        <span>商盟成员：</span>
+                        <a href="#">网页特效</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer2 hidden-xs hidden-sm">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="copyright col-md-12 column text-center">
+                    Copyright&copy;某某机械设备有限公司(<a title="复制链接" href="javascript:copyURL();" target="_parent"
+                                                 rel="nofollow">复制链接</a>) 某某机械设备有限公司
+                    <br/>
+                    机械设备哪家强？机械设备哪家强？机械设备哪家强？机械设备哪家强？
+                    <br/>
+                    备案号：<a href="" target="_blank" rel="nofollow"></a>&nbsp;&nbsp;
+                    <div class="cityspread"><strong>热门城市推广: </strong>
+                        <a>常州</a><a>无锡</a><a>苏州</a><a>上海</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="phonefooternav visible-xs visible-sm">
+    <ul>
+        <li>
+            <a rel="nofollow" href="">
+                <i class="glyphicon glyphicon-earphone"></i>
+                <span>一键拨号</span>
+            </a>
+        </li>
+        <li>
+            <a rel="nofollow" href="products.html">
+                <i class="glyphicon glyphicon-th-large"></i>
+                <span>产品项目</span>
+            </a>
+        </li>
+        <li>
+            <a rel="nofollow" href="news.html">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>新闻资讯</span>
+            </a>
+        </li>
+        <li>
+            <a rel="nofollow" href="index.html">
+                <i class="glyphicon glyphicon-home"></i>
+                <span>返回首页</span>
+            </a>
+        </li>
+    </ul>
+</div>

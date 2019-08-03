@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+<div class="pctop1 hidden-xs">
+    <div class="pctop1_nei">
+        <div class="fl pctop1_left  pc">
+            欢迎光临本站
+        </div>
+        <div class="fr pctop1_left  pc">
+            您暂时没有询盘信息！
+        </div>
+    </div>
+</div>
+<div class="pcto pc">
+    <div class="pcto_box pc">
+        <a href="" class="fl pcto_logo"><img src="picture/logo.png" height="55"/></a>
+        <div class="pcto_menu">
+            <div class="pcto_menu_xun yxl " :class="{'yxl':(item.children && item.children.length > 0)}"
+                 v-for="item in listColumn" :key="item.id">
+                <a class="pcto_menu_a">{{item.categoryName}}</a>
+                <div class="pcto_xl" v-if="item.children && item.children.length > 0">
+                    <a @click="handleSubMenu(item , sub)" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
+                </div>
+                <div class="pcto_bg"></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="mot mo">
+    <a href="" class="molo"><img src="picture/logo.png"/></a>
+    <img src="picture/bg37.png" class="momenuicon openicon"/>
+    <img src="picture/bg36.png" class="momenuicon cloesicon"/>
+</div>
+<div class="moxl">
+    <div class="moxl_box">
+
+        <div class="moxl_xun" v-for="item in listColumn" :key="item.id">
+            <div class="moxl_xun_icon">
+                <img src="picture/bg39.png" class="moxl_xun_img1"/>
+                <img src="picture/bg40.png" class="moxl_xun_img2"/>
+            </div>
+            <a  class="moxl_xun_title">{{item.categoryName}}</a>
+            <div class="moxl_erji" v-if="item.children && item.children.length > 0">
+                <a @click="handleSubMenu(item , sub)" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
+
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+    
