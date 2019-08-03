@@ -22,7 +22,7 @@
     <div class="newsnav">
         <span>您当前的位置:</span>
         <a href="index.html">主页</a> &gt;
-        <a >产品中心</a> &gt;
+        <a @click="handleToPro">产品中心</a> &gt;
         <a href="#">{{nowColum}}</a> &gt;
     </div>
     <div class="newneititle">
@@ -32,20 +32,23 @@
             </div>
             <div class="newstitle2">
                 <span>发表于：{{createtime}}</span>
-<!--                <span style="margin-right:0;">来源：http://www.nestcms.com</span>-->
+                <!--                <span style="margin-right:0;">来源：http://www.nestcms.com</span>-->
             </div>
         </div>
     </div>
-    <div class="about" v-html="content">
+    <div class="about" >
+        <div v-html="content" >
+
+        </div>
         <div class="tag jianju">相关标签:产品详情</div>
         <p @click="handlePre">上一个：{{pre}}</p>
         <p @click="handleNext">下一个：{{next}}</p>
         <div class="related_list">
             <h4>相关新闻</h4>
             <ul>
-                <li><a
-                        @click="handleNews(item)"
-                        v-for="item in listNews" :key="item.id">{{item.title}}</a><span>{{item.createTime}}</span></li>
+                <li  @click="handleNews(item)"
+                     v-for="item in listNews" :key="item.id"><a
+                       >{{item.title}}</a><span>{{item.createTime}}</span></li>
 
             </ul>
         </div>
@@ -104,21 +107,21 @@
                     }],
                     selectedNews: 0,
 
-                    listNews:[],
-                    listPro:[],
-                    lower:{},
-                    upper:{},
-                    content:'',
-                    createtime:'',
-                    nowColum:'',
-                    pname:'',
+                    listNews: [],
+                    listPro: [],
+                    lower: {},
+                    upper: {},
+                    content: '',
+                    createtime: '',
+                    nowColum: '',
+                    pname: '',
                 }
             },
             computed: {
-                pre:function(){
+                pre: function () {
                     return this.upper && this.upper.isHas == 1 ? this.upper.pname : "没有了"
                 },
-                next:function(){
+                next: function () {
                     return this.lower && this.lower.isHas == 1 ? this.lower.pname : "没有了"
                 },
 
@@ -159,21 +162,29 @@
             },
 
             methods: {
-                handleNews:function(item){
+                handleToPro:function(){
+                    var list = this.index.listColumn
+                    for(item of list){
+                        if(item.categoryState == 3){
+                            return handleSubMenu(item , item.children[0])
+                        }
+                    }
+                },
+                handleNews: function (item) {
 
                 },
-                handlePre:function(){
-                    if(this.upper && this.upper.isHas == 1){
-                        navPage("./products_article.html?id="+this.upper.id)
+                handlePre: function () {
+                    if (this.upper && this.upper.isHas == 1) {
+                        navPage("./products_article.html?id=" + this.upper.id)
                     }
                 },
-                handleNext:function(){
-                    if(this.lower && this.lower.isHas == 1){
-                        navPage("./products_article.html?id="+this.lower.id)
+                handleNext: function () {
+                    if (this.lower && this.lower.isHas == 1) {
+                        navPage("./products_article.html?id=" + this.lower.id)
                     }
                 },
-                handleProDetails:function(id){
-                    navPage("./products_article.html?id="+this.lower.id)
+                handleProDetails: function (id) {
+                    navPage("./products_article.html?id=" + this.lower.id)
                 },
                 handleNewsItem: function (item) {
                     console.log("e :", item)
@@ -191,8 +202,8 @@
                         console.log("prod details", data)
                         self.listNews = data.listNews
                         self.listPro = data.listPro
-                        self.lower = data.lower
-                        self.upper = data.upper
+                        self.lower = data.upper
+                        self.upper = data.lower
                         self.content = data.content
                         self.createtime = data.createtime
                         self.nowColum = data.nowColum
