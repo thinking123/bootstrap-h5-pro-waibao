@@ -208,7 +208,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <!--  <script src="js/npm.js"></script> -->
-<script src="js/indexglobal.js"></script>
+<!--<script src="js/indexglobal.js"></script>-->
 <!--<script src="js/global.js"></script>-->
 <script src="js/http.js"></script>
 <script src="js/common.js"></script>
@@ -242,10 +242,7 @@
             el: '#app',
             data: function () {
                 return {
-                    name: '大漠',
-                    count: 0, firstName: 'Walter',
-                    lastName: 'White',
-                    alias: 'Heisenberg',
+                    pageName: 'index',
                     // index:{},
                     listCarousel: [],
                     listAdvantage: [],
@@ -299,6 +296,9 @@
                 },
                 handleSubMenu:function(item , sub){
                     handleSubMenu(item , sub)
+                },
+                handlePhoneMenu:function (e) {
+                    handleSubMenuPhone(e, this.index)
                 }
             }
 

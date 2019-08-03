@@ -47,7 +47,40 @@ function loadHeaderFooter(cb){
 
 
 }
+function handleSubMenuPhone(e , index) {
+    var list = index.listColumn
+    console.log(e)
+    var i = e.target.tagName.toLowerCase() == "li" ?
+        $(e.target).index() : $(e.target).closest("li").index()
+    console.log('index' , i)
 
+    for(item of list){
+        if(item.categoryState == 3 && i == 1){
+            return handleSubMenu(item , item.children[0])
+        }
+
+        if(item.categoryState == 5 && i == 2){
+            return handleSubMenu(item , item.children[0])
+        }
+    }
+    switch (i) {
+        // case 0 :
+        //
+        //     break
+//         case 1 :
+// //pro
+//             break
+//         case 2 :
+// //news
+//             var news = list[]
+//
+//             break
+        case 3 :
+//home
+           navPage("./index.html")
+            break
+    }
+}
 
 function handleSubMenu(item , sub) {
     /*
@@ -87,27 +120,27 @@ function handleSubMenu(item , sub) {
 function loadBootstrap() {
 
     var url = window.location.href;		//获取当前URL
-    if(url.indexOf("/about")>=0){
-        $(".pcto_menu_xun ").eq(1).addClass('on');
-    }
-    else if(url.indexOf("/product")>=0){
-        $(".pcto_menu_xun ").eq(2).addClass('on');
-    }
-    else if(url.indexOf("/service")>=0){
-        $(".pcto_menu_xun ").eq(3).addClass('on');
-    }
-    else if(url.indexOf("/new")>=0){
-        $(".pcto_menu_xun ").eq(4).addClass('on');
-    }
-    else if(url.indexOf("/job")>=0){
-        $(".pcto_menu_xun ").eq(5).addClass('on');
-    }
-    else if(url.indexOf("/contact")>=0){
-        $(".pcto_menu_xun ").last().addClass('on');
-    }
-    else{
-        $(".pcto_menu_xun ").eq(0).addClass('on');
-    }
+    // if(url.indexOf("/about")>=0){
+    //     $(".pcto_menu_xun ").eq(1).addClass('on');
+    // }
+    // else if(url.indexOf("/product")>=0){
+    //     $(".pcto_menu_xun ").eq(2).addClass('on');
+    // }
+    // else if(url.indexOf("/service")>=0){
+    //     $(".pcto_menu_xun ").eq(3).addClass('on');
+    // }
+    // else if(url.indexOf("/new")>=0){
+    //     $(".pcto_menu_xun ").eq(4).addClass('on');
+    // }
+    // else if(url.indexOf("/job")>=0){
+    //     $(".pcto_menu_xun ").eq(5).addClass('on');
+    // }
+    // else if(url.indexOf("/contact")>=0){
+    //     $(".pcto_menu_xun ").last().addClass('on');
+    // }
+    // else{
+    //     $(".pcto_menu_xun ").eq(0).addClass('on');
+    // }
 
     if(url.indexOf("/en/")>=0&&$(".fenye").length>0){
         var len=$(".fenye_nei a").length;

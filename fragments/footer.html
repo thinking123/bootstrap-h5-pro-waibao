@@ -69,27 +69,27 @@
     </div>
 </div>
 <div class="phonefooternav visible-xs visible-sm">
-    <ul>
+    <ul @click="handlePhoneMenu($event)">
         <li>
-            <a rel="nofollow" href="">
+            <a rel="nofollow"  :href="webcompany.telephone">
                 <i class="glyphicon glyphicon-earphone"></i>
                 <span>一键拨号</span>
             </a>
         </li>
         <li>
-            <a rel="nofollow" href="products.html">
+            <a rel="nofollow" >
                 <i class="glyphicon glyphicon-th-large"></i>
                 <span>产品项目</span>
             </a>
         </li>
         <li>
-            <a rel="nofollow" href="news.html">
+            <a rel="nofollow" >
                 <i class="glyphicon glyphicon-th-list"></i>
                 <span>新闻资讯</span>
             </a>
         </li>
         <li>
-            <a rel="nofollow" href="index.html">
+            <a rel="nofollow" >
                 <i class="glyphicon glyphicon-home"></i>
                 <span>返回首页</span>
             </a>
