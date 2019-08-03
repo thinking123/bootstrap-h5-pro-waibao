@@ -11,9 +11,12 @@ function addQuery(url , params) {
         if (str != "") {
             str += "&";
         }
-        str += key + "=" + encodeURIComponent(obj[key]);
+        str += key + "=" + encodeURIComponent(params[key]);
     }
 
+    if(!!str){
+        url += "?"
+    }
     url = url + str
 
     return url
@@ -35,7 +38,7 @@ function gethttp(url , params) {
     })
 }
 function getKideDes(id , columnId) {
-    var url = baseUrl + "/api/index/kideDes"
+    var url = baseUrl + "/api/index/kideDes "
     var params = {
         "id":id,
         "columnId": columnId

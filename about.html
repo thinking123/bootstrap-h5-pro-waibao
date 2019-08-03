@@ -20,29 +20,24 @@
     <div class="neibanner" style="background:url(images/banner_about.jpg) no-repeat 50%; background-size: cover;"></div>
     <div class="neipagename">
         <div class="pagename_en">
-            ABOUT US
+            {{curContent.enName}}
         </div>
         <br/>
         <div class="pagename_ch">
             <div>
-                关于我们
+                {{curContent.cnName}}
             </div>
         </div>
     </div>
     <div class="neimenu">
         <div>
-            <a v-for="item in tabs" :key="item.id">{{item.categoryName}}</a>
+            <a
+                    @click="handleTabs(item)"
+                    v-for="item in tabs" :key="item.id" :class="{'active':(selectedTitleId==item.id)}">{{item.categoryName}}</a>
         </div>
     </div>
     <div class="about">
-        <div>
-            XXX有限公司成立于2005年3月，占地面积25000平方米，其中厂房面积8000平方米。公司拥有从英国、美国、日本引进的精密数控加工中心，车床、铣床、镗床，并配套有三座标测量仪等各种先进检测设备。公司具备年产各种产品5000台（套）和各种精密加工件10万件的能力，可为顾客提供优质的产品和良好的服务。
-
-            　　
-            依托综合性人才和科技资源优势，历经二十年的市场风雨，年产值超过30亿元。我公司的企业宗旨是“承担历史责任，推动社会进步”，在“自强不息、厚德载物”和“文行忠信、恭宽敏惠”的指引下，以“品牌、资源、资金”为发展支点，以“简单、高效、健康”为管理思想，突出主营业务方向，形成了三大业务群组：力求以多样化的产品、系统化的技术应用和服务，多层次、持续性地满足用户的不断需求。
-
-            　　
-            公司立足于机械产品制造业为主，全面开发生产压缩机、风机、负压泵、电磁液体泵、蒸气家电等气液机械产品。同时，公司具备进出口经营权，，可经营公司自主开发的机械产品的进出口业务。公司的产品销往全国各地，部分产品出口到香港、台湾、美国和日本等地。
+        <div v-html="curContent.content">
         </div>
     </div>
     <div id="footer"></div>
@@ -51,7 +46,7 @@
 <script src="js/vue.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<script src="js/npm.js"></script>
+<!--<script src="js/npm.js"></script>-->
 <script src="js/global.js"></script>
 <script src="js/http.js"></script>
 <script src="js/common.js"></script>
@@ -118,12 +113,11 @@
 
                 var id = getParameterByName("id")
                 var columnId = getParameterByName("columnId")
-                var selectedTitleId = getParameterByName("sub")
-                this.selectedTitleId = selectedTitleId
-                getKideDes(id , columnId).then(function (data) {
-                    self.tabs = data.list
-                    self.curContent = data
-                })
+                // var selectedTitleId = getParameterByName("sub")
+                this.selectedTitleId = columnId
+                this.id = id
+
+                this.getKideDes()
 
 
             },
@@ -157,39 +151,23 @@
 
             * */
             methods: {
-                handleNewsItem:function( item){
+                getKideDes:function(){
+                    console.log("getKideDes")
+                    var self = this
+                    getKideDes(this.id , this.selectedTitleId).then(function (data) {
+                        self.tabs = data.list
+                        self.curContent = data
+
+                    })
+                },
+                handleTabs:function( item){
                     console.log("e :" , item)
 
+                    this.selectedTitleId = item.id
+                    this.getKideDes()
                 },
                 handleSubMenu:function(item , sub){
-                    /*
-                    * categoryName (string, optional): 名称 ,
-    categoryState (integer, optional): 类型 1 富文本 3产品 4资料下载 5新闻 ,
-    children (Array[首页栏目], optional),
-    enName (string, optional): 英文名 ,
-    id (integer, optional): 主键 ,
-    parentId (integer, optional): 上级编号 ,
-    state (integer, optional)*/
-                    console.log("item" , "sub" , item , sub)
-                    var url = ""
-                    switch (item.categoryState) {
-                        case "1":
-                            url = "./about.html"
-                            break
-                        case "3":
-                            break
-                        case "4":
-                            break
-                        case 5:
-                            url = "./news.html"
-                            url = formateUrl(url , "id" , item.id)
-                            url = formateUrl(url , "columnId" , sub.id)
-                            alert( url)
-                            break
-                    }
-                    if(!!url){
-                        navPage(url)
-                    }
+                    handleSubMenu(item , sub)
                 },
                 getNewsList: function (id, columnId) {
                     var url = baseUrl + "/api/index/newsList"

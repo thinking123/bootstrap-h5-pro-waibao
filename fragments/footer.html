@@ -7,7 +7,7 @@
                 {{item.categoryName}}
             </div>
             <div class="footer1_xun1_box">
-                <a href="about.html" v-for="sub in item.children">{{sub.categoryName}}</a>
+                <a @click="handleSubMenu(item , sub)" v-for="sub in item.children">{{sub.categoryName}}</a>
                 <div class=" clear"></div>
             </div>
         </div>
