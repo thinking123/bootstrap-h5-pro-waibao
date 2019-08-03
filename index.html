@@ -9,6 +9,7 @@
     <meta name="keywords" content=""/>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/global.css" rel="stylesheet"/>
+    <link href="css/index.css" rel="stylesheet"/>
     <script src="js/shover.min.js"></script>
     <style></style>
 </head>
@@ -295,16 +296,14 @@
         <div class="clear"></div>
         <div class="newssel">
             <div class="newssel_nei">
-                <div class="newssel_nei_op">
-                    公司新闻
-                </div>
-                <div class="newssel_nei_op">
-                    行业新闻
+                <div class="newssel_nei_op" v-for="(item , index) in newsIndices" :key="index" :class="{'active':(index == selectedNews)}" @click="selectedNews=index">
+                    {{item.name}}
                 </div>
             </div>
         </div>
         <div class="indexnesqiehuan">
             <div class="newsxxk">
+
                 <a href="news_article.html">
                     <div class="newsxxk_img">
                         <img src="picture/news.jpg" width="170px" height="170px"/>
@@ -603,7 +602,8 @@
                 listProduct: [],
                 webcompany: {},
                 about: '',
-                newsIndices: []
+                newsIndices: [],
+                selectedNews:0,
             }
         },
         computed: {
