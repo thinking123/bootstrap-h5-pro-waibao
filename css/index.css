@@ -1,3 +1,11 @@
+#app{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
 .newssel_nei_op.active{
     background: #FFFFFF;
     color: #c70505 !important;

@@ -32,9 +32,9 @@
             <div class="pcto_menu">
                 <div class="pcto_menu_xun yxl " :class="{'yxl':(item.children && item.children.length > 0)}"
                      v-for="item in listColumn" :key="item.id">
-                    <a href="about.html" class="pcto_menu_a">{{item.categoryName}}</a>
+                    <a class="pcto_menu_a">{{item.categoryName}}</a>
                     <div class="pcto_xl" v-if="item.children && item.children.length > 0">
-                        <a href="about.html" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
+                        <a @click="handleSubMenu(item , sub)" v-for="sub in item.children" :key="sub.id">{{sub.categoryName}}</a>
                     </div>
                     <div class="pcto_bg"></div>
                 </div>
@@ -433,6 +433,7 @@
 <script src="js/indexglobal.js"></script>
 <script src="js/global.js"></script>
 <script src="js/http.js"></script>
+<script src="js/common.js"></script>
 <script>
     window.onload = function () {
 
@@ -562,15 +563,35 @@
         methods: {
             handleNewsItem:function( item){
                 console.log("e :" , item)
-                
+
             },
-            formateUrl: function (uri, key, value) {
-                var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-                var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-                if (uri.match(re)) {
-                    return uri.replace(re, '$1' + key + "=" + value + '$2');
-                } else {
-                    return uri + separator + key + "=" + value;
+            handleSubMenu:function(item , sub){
+                /*
+                * categoryName (string, optional): 名称 ,
+categoryState (integer, optional): 类型 1 富文本 3产品 4资料下载 5新闻 ,
+children (Array[首页栏目], optional),
+enName (string, optional): 英文名 ,
+id (integer, optional): 主键 ,
+parentId (integer, optional): 上级编号 ,
+state (integer, optional)*/
+                console.log("item" , "sub" , item , sub)
+                var url = ""
+                switch (item.categoryState) {
+                    case "1":
+                        break
+                    case "3":
+                        break
+                    case "4":
+                        break
+                    case 5:
+                        url = "./news.html"
+                        url = formateUrl(url , "id" , item.id)
+                        url = formateUrl(url , "columnId" , sub.id)
+                        alert( url)
+                        break
+                }
+                if(!!url){
+                    navPage(url)
                 }
             },
             getNewsList: function (id, columnId) {
