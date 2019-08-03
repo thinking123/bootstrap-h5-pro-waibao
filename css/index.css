@@ -40,3 +40,9 @@
     color: #de0a1e;
     border: #de0a1e solid 1px;
 }
+
+.pagess li.active{
+    background: #E12234;
+    color: #fff;
+    border: 1px solid #E12234;
+}

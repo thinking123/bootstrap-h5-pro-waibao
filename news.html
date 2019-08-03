@@ -72,11 +72,16 @@
     </div>
     <div class="pagess">
         <ul>
-            <li>首页</li>
-            <li class="thisclass">1</li>
-            <li><a href="news.html">2</a></li>
-            <li><a href="news.html">下一页</a></li>
-            <li><a href="news.html">末页</a></li>
+            <li @click="handleHome">首页</li>
+            <li v-for="i in pages" :key="i"
+                :class="{'active':i==pageNum}"
+                @click="handlePage(i)"
+            >{{i}}</li>
+
+            <!--                    <li class="thisclass">1</li>-->
+            <!--                    <li><a href="products.html">2</a></li>-->
+            <li><a @click="handleNext">下一页</a></li>
+            <li><a @click="handleEnd">末页</a></li>
         </ul>
     </div>
     <div id="footer"></div>
@@ -191,6 +196,27 @@
             },
 
             methods: {
+                handleHome:function(){
+                    this.pageNum = 1;
+                    this.getNewsList()
+                },
+                handlePage:function(i){
+
+                    this.pageNum = i + 1;
+                    this.getNewsList()
+                },
+                handleNext:function(){
+                    if(i >= this.pages){
+                        return
+                    }
+                    this.pageNum += 1;
+                    this.getNewsList()
+                },
+                handleEnd:function(){
+                    this.pageNum = this.pages;
+                    this.getNewsList()
+                },
+
                 handleNewsItem: function (item) {
                     console.log("e :", item)
 
