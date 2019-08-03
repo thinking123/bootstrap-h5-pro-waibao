@@ -15,3 +15,11 @@
 .newsxxk a {
     cursor: pointer;
 }
+
+.pcto_menu_a{
+    cursor: default;
+}
+
+.pcto_xl a {
+    cursor: pointer;
+}
