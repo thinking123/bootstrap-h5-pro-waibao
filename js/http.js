@@ -52,3 +52,11 @@ function getIndex() {
     return gethttp(url)
 }
 
+function getProduct(productId , pageNum) {
+    var url = baseUrl + "/api/index/product"
+    var params = {
+        "productId":productId,
+        "pageNum": pageNum
+    }
+    return gethttp(url)
+}

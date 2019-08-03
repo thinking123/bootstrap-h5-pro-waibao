@@ -29,3 +29,9 @@
     color: #de0a1e;
     border: #de0a1e solid 1px;
 }
+
+.proleft_xiala a.active{
+    background: url(../images/bg24.png) no-repeat 209px 50%, #faf5f5;
+    border-left: #cb1717 solid 4px;
+    padding-left: 36px;
+}

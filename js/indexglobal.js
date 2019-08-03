@@ -1,5 +1,6 @@
 // JavaScript Document
 //首页新闻中心选项卡切换
+
 $(document).ready(function(e) {
 	var ind=0;
 	$(".newssel_nei_op").eq(ind).addClass("on"); 

@@ -107,7 +107,7 @@
                     self.newsIndices = self.index.newsIndices;
 
                     setTimeout(function () {
-                        self.initMobMenu()
+                        loadBootstrap()
                     }, 300)
                 })
 
@@ -168,86 +168,9 @@
                 },
                 handleSubMenu:function(item , sub){
                     handleSubMenu(item , sub)
-                },
-                getNewsList: function (id, columnId) {
-                    var url = baseUrl + "/api/index/newsList"
-
-                    url = this.formateUrl(url , "id" , id)
-                    url = this.formateUrl(url , "columnId" , columnId)
-
-                    console.log('formaturl' , url)
-
-                    var self = this;
-                    $.get(url, function (data) {
-                        console.log('data', data)
-                        self.index = data.rows;
-                        self.listCarousel = self.index.listCarousel;
-                        self.listAdvantage = self.index.listAdvantage;
-                        self.listProduct = self.index.listProduct;
-                        self.listColumn = self.index.listColumn;
-                        self.webcompany = self.index.webcompany;
-                        self.about = self.index.about;
-                        self.newsIndices = self.index.newsIndices;
-
-                        console.log('this cou', self.listColumn)
-
-                        setTimeout(function () {
-                            self.initMobMenu()
-                        }, 300)
-
-                    })
-                    /*
-                    * {
-      "message": "string",
-      "path": "string",
-      "rows": {
-        "cnName": "string",
-        "enName": "string",
-        "list": [
-          {}
-        ],
-        "listNews": [
-          {}
-        ],
-        "nowColumn": "string",
-        "nowColumnId": "string"
-      },
-      "status": "string"
-    }*/
-
-
-                },
-                initMobMenu: function () {
-                    var a = -1, ind;
-                    $(".moxl_xun_img1").click(function () {
-                        // alert('click')
-                        $(".moxl_xun_img1").show();
-                        $(this).hide();
-                        $(".moxl_xun_img2").hide();
-                        $(this).next().show();
-                        $(".moxl_erji").slideUp();
-                        ind = $(this).parents(".moxl_xun").index();
-                        if (a != ind) {
-                            $(this).parents(".moxl_xun").find(".moxl_erji").slideDown();
-                            a = ind;
-                        } else {
-                            a = -1;
-                        }
-                    });
-                    $(".moxl_xun_img2").click(function () {
-                        $(".moxl_xun_img1").show();
-                        $(this).hide();
-                        $(".moxl_xun_img2").hide();
-                        $(".moxl_erji").slideUp();
-                        a = -1;
-                    });
                 }
             }
-            // methods: {
-            //  increase: function () {
-            //   this.count++
-            //  }
-            // }
+
         })
     }
     /*

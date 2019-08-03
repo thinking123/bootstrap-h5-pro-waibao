@@ -289,49 +289,9 @@
                     setTimeout(function () {
                         loadBootstrap()
                     }, 300)
-                    // loadBootstrap()
                 })
-
-
-
-                // $.getScript( "./js/global.js" , function (s) {
-                //     // var s = document.createElement("script");
-                //     // s.type = "text/javascript";
-                //     // s.src = "js/global.js";
-                //     // // Use any selector
-                //     // $("body").append(s);
-                // });
-
-
             },
-            /*
-            *  "newsIndices": [
-          {
-            "list": [
-              {
-                "content": "string",
-                "contenttype": "string",
-                "coverImg": "string",
-                "createTime": "string",
-                "field": "string",
-                "id": 0,
-                "isDel": 0,
-                "sort": 0,
-                "subTitle": "string",
-                "title": "string",
-                "type": 0,
-                "typeName": "string"
-              }
-            ],
-            "name": "string"
-          }
-        ],
-        "webcompany": {
-          "address": "string",
-          "email": "string",
-          "id": 0,
-          "phone": "string"
-            * */
+
             methods: {
                 handleNewsItem:function( item){
                     console.log("e :" , item)
@@ -339,123 +299,11 @@
                 },
                 handleSubMenu:function(item , sub){
                     handleSubMenu(item , sub)
-                },
-                initMobMenu: function () {
-                    var a = -1, ind;
-                    $(".moxl_xun_img1").click(function () {
-                        // alert('click')
-                        $(".moxl_xun_img1").show();
-                        $(this).hide();
-                        $(".moxl_xun_img2").hide();
-                        $(this).next().show();
-                        $(".moxl_erji").slideUp();
-                        ind = $(this).parents(".moxl_xun").index();
-                        if (a != ind) {
-                            $(this).parents(".moxl_xun").find(".moxl_erji").slideDown();
-                            a = ind;
-                        } else {
-                            a = -1;
-                        }
-                    });
-                    $(".moxl_xun_img2").click(function () {
-                        $(".moxl_xun_img1").show();
-                        $(this).hide();
-                        $(".moxl_xun_img2").hide();
-                        $(".moxl_erji").slideUp();
-                        a = -1;
-                    });
                 }
             }
-            // methods: {
-            //  increase: function () {
-            //   this.count++
-            //  }
-            // }
+
         })
     }
-
-    // var Profile = Vue.extend({
-    //  template: '<div>{{lastName}}</div>',
-    //  data: function () {
-    //   return {
-    //    firstName: 'Walter',
-    //    lastName: 'White',
-    //    alias: 'Heisenberg'
-    //   }
-    //  }
-    // })
-    // // 创建 Profile 实例，并挂载到一个元素上。
-    // new Profile().$mount('#app')
-
-
-    //GET /api/index/kideDes   这里点击head的主标题的子菜单获取 文章列表
-    //然后列表选择显示文章
-
-
-
-    /*
-    * {
-    "message": "string",
-    "path": "string",
-    "rows": {
-      "about": "string",
-      "listAdvantage": [
-        {
-          "cnName": "string",
-          "enName": "string",
-          "id": 0,
-          "isDel": 0,
-          "listType": 0,
-          "standardName": "string",
-          "type": 0,
-          "url": "string"
-        }
-      ],
-      "listCarousel": [
-        {
-          "cnName": "string",
-          "enName": "string",
-          "id": 0,
-          "isDel": 0,
-          "listType": 0,
-          "standardName": "string",
-          "type": 0,
-          "url": "string"
-        }
-      ],
-      "listColumn": [
-        {
-          "categoryName": "string",
-          "categoryState": 0,
-          "children": [
-            {}
-          ],
-          "enName": "string",
-          "id": 0,
-          "parentId": 0,
-          "state": 0
-        }
-      ],
-      "listProduct": [
-        {
-          "cover": "string",
-          "describe": "string",
-          "id": 0,
-          "pname": "string"
-        }
-      ],
-      "webcompany": {
-        "address": "string",
-        "email": "string",
-        "id": 0,
-        "phone": "string",
-        "telephone": "string"
-      }
-    },
-    "status": "string"
-  }
-    * */
-
 
 </script>
 </html>
