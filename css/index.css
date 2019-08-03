@@ -3,3 +3,7 @@
     color: #c70505 !important;
     font-weight: bolder;
 }
+
+.newsxxk a {
+    cursor: pointer;
+}
