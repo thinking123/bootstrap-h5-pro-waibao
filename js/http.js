@@ -65,7 +65,7 @@ function getNewDes(id) {
     var params = {
         "id":id
     }
-    return gethttp(url)
+    return gethttp(url , params)
 }
 function getNewsList(id , columnId , pageNum) {
     var url = baseUrl + "/api/index/newsList"

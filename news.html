@@ -40,7 +40,7 @@
     </div>
 
     <div class="newsline">
-        <a v-for="item in listNews" :key="item.id">
+        <a v-for="item in listNews" :key="item.id" @click="handleToDetail(item.id)">
             <div class="newstime">
      <span> 
       <div class="newstime_top">
@@ -252,6 +252,9 @@
                     this.columnId = id
                     this.pageNum = 1
                     this.getNewsList()
+                },
+                handleToDetail:function (id) {
+                    navPage("./news_article.html?id=" + id)
                 }
             }
 
