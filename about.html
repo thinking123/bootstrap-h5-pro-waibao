@@ -31,9 +31,7 @@
     </div>
     <div class="neimenu">
         <div>
-            <a href="about.html">公司简介</a>
-            <a href="about.html">企业文化</a>
-            <a href="about.html">公司资质</a>
+            <a v-for="item in tabs" :key="item.id">{{item.categoryName}}</a>
         </div>
     </div>
     <div class="about">
@@ -80,6 +78,10 @@
                         list:[]
                     }],
                     selectedNews:0,
+
+                    selectedTitleId:"",
+                    tabs:[],
+                    curContent:{}
                 }
             },
             computed: {
@@ -96,12 +98,11 @@
                 }
             },
             mounted() {
-                var url = baseUrl + "/api/index"
-                console.log('url', url)
                 var self = this;
-                $.get(url, function (data) {
-                    console.log('data', data)
-                    self.index = data.rows;
+                getIndex().then(function (data){
+                    console.log("load data jquery:"  ,data)
+
+                    self.index = data;
                     self.listCarousel = self.index.listCarousel;
                     self.listAdvantage = self.index.listAdvantage;
                     self.listProduct = self.index.listProduct;
@@ -110,43 +111,50 @@
                     self.about = self.index.about;
                     self.newsIndices = self.index.newsIndices;
 
-                    console.log('this cou', self.listColumn)
-
                     setTimeout(function () {
                         self.initMobMenu()
                     }, 300)
+                })
 
+                var id = getParameterByName("id")
+                var columnId = getParameterByName("columnId")
+                var selectedTitleId = getParameterByName("sub")
+                this.selectedTitleId = selectedTitleId
+                getKideDes(id , columnId).then(function (data) {
+                    self.tabs = data.list
+                    self.curContent = data
                 })
 
 
             },
             /*
-            *  "newsIndices": [
-          {
-            "list": [
-              {
-                "content": "string",
-                "contenttype": "string",
-                "coverImg": "string",
-                "createTime": "string",
-                "field": "string",
-                "id": 0,
-                "isDel": 0,
-                "sort": 0,
-                "subTitle": "string",
-                "title": "string",
-                "type": 0,
-                "typeName": "string"
-              }
-            ],
-            "name": "string"
-          }
+            *  {
+  "message": "string",
+  "path": "string",
+  "rows": {
+    "cnName": "string",
+    "content": "string",
+    "enName": "string",
+    "list": [
+      {
+        "categoryName": "string",
+        "categoryState": 0,
+        "children": [
+          {}
         ],
-        "webcompany": {
-          "address": "string",
-          "email": "string",
-          "id": 0,
-          "phone": "string"
+        "enName": "string",
+        "id": 0,
+        "parentId": 0,
+        "state": 0
+      }
+    ],
+    "nowColumn": "string",
+    "nowColumnId": "string"
+  },
+  "status": "string"
+}
+
+
             * */
             methods: {
                 handleNewsItem:function( item){

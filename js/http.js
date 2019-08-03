@@ -1,6 +1,6 @@
 var baseUrl = "http://39.96.36.17:8080"
 
-
+console.log("http file")
 function isHttpOk(status) {
     return !!status && status.substring(0,1) == "2"
 }
@@ -18,7 +18,7 @@ function addQuery(url , params) {
 
     return url
 }
-function get(url , params) {
+function gethttp(url , params) {
     url = addQuery(url , params)
     return $.get(url).then(function (data) {
         if(!!data && isHttpOk(data.status)){
@@ -34,13 +34,18 @@ function get(url , params) {
         }
     })
 }
-function getKideDes() {
-    url = "/api/index/kideDes"
-    var url = baseUrl + "/api/index"
-    console.log('url', url)
-    return $.get(url).then(function (data) {
-
-    })
+function getKideDes(id , columnId) {
+    var url = baseUrl + "/api/index/kideDes"
+    var params = {
+        "id":id,
+        "columnId": columnId
+    }
+    return gethttp(url , params)
 }
 
+
+function getIndex() {
+    var url = baseUrl + "/api/index"
+    return gethttp(url)
+}
 

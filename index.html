@@ -230,8 +230,13 @@
 
 <script>
 
-    loadHeaderFooter(getVue)
+    // $(function () {
+    //     alert(typeof gethttp)
+    //     loadHeaderFooter(getVue)
+    // })
 
+
+    loadHeaderFooter(getVue)
     function getVue(){
         var app = new Vue({
             el: '#app',
@@ -268,12 +273,11 @@
                 }
             },
             mounted() {
-                var url = baseUrl + "/api/index"
-                console.log('url', url)
                 var self = this;
-                $.get(url, function (data) {
-                    console.log('data', data)
-                    self.index = data.rows;
+                getIndex().then(function (data){
+                    console.log("load data jquery:"  ,data)
+
+                    self.index = data;
                     self.listCarousel = self.index.listCarousel;
                     self.listAdvantage = self.index.listAdvantage;
                     self.listProduct = self.index.listProduct;
@@ -282,12 +286,9 @@
                     self.about = self.index.about;
                     self.newsIndices = self.index.newsIndices;
 
-                    console.log('this cou', self.listColumn)
-
                     setTimeout(function () {
                         self.initMobMenu()
                     }, 300)
-
                 })
 
 
@@ -354,54 +355,6 @@
                     if(!!url){
                         navPage(url)
                     }
-                },
-                getNewsList: function (id, columnId) {
-                    var url = baseUrl + "/api/index/newsList"
-
-                    url = this.formateUrl(url , "id" , id)
-                    url = this.formateUrl(url , "columnId" , columnId)
-
-                    console.log('formaturl' , url)
-
-                    var self = this;
-                    $.get(url, function (data) {
-                        console.log('data', data)
-                        self.index = data.rows;
-                        self.listCarousel = self.index.listCarousel;
-                        self.listAdvantage = self.index.listAdvantage;
-                        self.listProduct = self.index.listProduct;
-                        self.listColumn = self.index.listColumn;
-                        self.webcompany = self.index.webcompany;
-                        self.about = self.index.about;
-                        self.newsIndices = self.index.newsIndices;
-
-                        console.log('this cou', self.listColumn)
-
-                        setTimeout(function () {
-                            self.initMobMenu()
-                        }, 300)
-
-                    })
-                    /*
-                    * {
-      "message": "string",
-      "path": "string",
-      "rows": {
-        "cnName": "string",
-        "enName": "string",
-        "list": [
-          {}
-        ],
-        "listNews": [
-          {}
-        ],
-        "nowColumn": "string",
-        "nowColumnId": "string"
-      },
-      "status": "string"
-    }*/
-
-
                 },
                 initMobMenu: function () {
                     var a = -1, ind;
