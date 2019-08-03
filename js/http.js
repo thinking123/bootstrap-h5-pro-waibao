@@ -60,6 +60,13 @@ function getProduct(productId , pageNum) {
     }
     return gethttp(url)
 }
+function getNewDes(id) {
+    var url = baseUrl + "/api/index/advantageDetails"
+    var params = {
+        "id":id
+    }
+    return gethttp(url)
+}
 function getNewsList(id , columnId , pageNum) {
     var url = baseUrl + "/api/index/newsList"
     var params = {
