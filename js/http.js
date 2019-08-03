@@ -84,7 +84,7 @@ function getProductDes(productId) {
     return gethttp(url , params)
 }
 function getAdvantage(columnId) {
-    var url = baseUrl + "/api/index/advantage"
+    var url = baseUrl + "/api/index/advantage "
     var params = {
         "columnId":columnId
     }

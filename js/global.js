@@ -1,5 +1,5 @@
 // JavaScript Document
-alert("code")
+// alert("code")
 // $(document).ready(function(e) {
 	var url = window.location.href;		//获取当前URL
 	if(url.indexOf("/about")>=0){

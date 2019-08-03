@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/global.css" rel="stylesheet"/>
+
+    <link href="css/index.css" rel="stylesheet"/>
+    <style></style>
+</head>
+<body>
+<div id="app">
+
+    <div id="header"></div>
+    <div class="neibanner" style="background:url(images/banner_about.jpg) no-repeat 50%; background-size: cover;"></div>
+    <div class="neipagename">
+        <div class="pagename_en">
+            {{curContent.enName}}
+        </div>
+        <br/>
+        <div class="pagename_ch">
+            <div>
+                {{curContent.cnName}}
+            </div>
+        </div>
+    </div>
+    <div class="neimenu">
+        <div>
+            <a
+                    @click="handleTabs(item)"
+                    v-for="item in tabs" :key="item.id" :class="{'active':(selectedTitleId==item.id)}">{{item.cnName}}</a>
+        </div>
+    </div>
+    <div class="about">
+        <div v-html="content">
+        </div>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!--<script src="js/npm.js"></script>-->
+<!--<script src="js/global.js"></script>-->
+<script src="js/http.js"></script>
+<script src="js/common.js"></script>
+<script>
+    loadHeaderFooter(getVue)
+
+    function getVue(){
+        var app = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    pageName: 'about',
+                    // index:{},
+                    listCarousel: [],
+                    listAdvantage: [],
+                    listColumn: [],
+                    listProduct: [],
+                    webcompany: {},
+                    about: '',
+                    newsIndices: [{
+                        list:[]
+                    }],
+                    selectedNews:0,
+
+                    selectedTitleId:"",
+                    tabs:[],
+                    curContent:{},
+
+                    showList:[],
+                    content:""
+                }
+            },
+            computed: {
+                pxbXun: function () {
+                    return {
+                        width: (this.listProduct.length * 283 + "px")
+                    }
+                },
+                newsItems1:function () {
+                    return this.newsIndices[this.selectedNews].list.slice(0 )
+                },
+                newsItems2:function () {
+                    return this.newsIndices[this.selectedNews].list.slice(2)
+                },
+                // curContent:function () {
+                //     if(!this.selectedTitleId){
+                //         return this.tabs && this.tabs.length > 0 ? this.tabs[0]:""
+                //     }
+                //     var item = null
+                //     var self = this
+                //     for(var i = 0 ; i < self.tabs.length ; i++){
+                //         item = self.tabs[i]
+                //         if(item.id == self.selectedTitleId){
+                //             return item
+                //         }
+                //     }
+                // }
+            },
+            mounted() {
+                var self = this;
+                getIndex().then(function (data){
+                    console.log("load data jquery:"  ,data)
+
+                    self.index = data;
+                    self.listCarousel = self.index.listCarousel;
+                    self.listAdvantage = self.index.listAdvantage;
+                    self.listProduct = self.index.listProduct;
+                    self.listColumn = self.index.listColumn;
+                    self.webcompany = self.index.webcompany;
+                    self.about = self.index.about;
+                    self.newsIndices = self.index.newsIndices;
+
+                    setTimeout(function () {
+                        loadBootstrap()
+                    }, 300)
+                })
+
+                var id = getParameterByName("id")
+                this.id = id
+                console.log('id' , id)
+                this.selectedTitleId = this.id
+
+                this.getAdvantage()
+
+            },
+            /*
+            *  {
+  "message": "string",
+  "path": "string",
+  "rows": {
+    "cnName": "string",
+    "content": "string",
+    "enName": "string",
+    "list": [
+      {
+        "categoryName": "string",
+        "categoryState": 0,
+        "children": [
+          {}
+        ],
+        "enName": "string",
+        "id": 0,
+        "parentId": 0,
+        "state": 0
+      }
+    ],
+    "nowColumn": "string",
+    "nowColumnId": "string"
+  },
+  "status": "string"
+}
+
+
+            * */
+            methods: {
+                setCon:function(){
+                    if(!this.selectedTitleId){
+                        this.curContent = {}
+                        // return this.tabs && this.tabs.length > 0 ? this.tabs[0]:""
+                    }
+                    var item = null
+                    var self = this
+                    for(var i = 0 ; i < self.tabs.length ; i++){
+                        item = self.tabs[i]
+                        if(item.id == self.selectedTitleId){
+                            this.curContent = item
+                        }
+                    }
+
+                    console.log('cur' , this.curContent)
+
+
+                    this.content = this.showList && this.showList.length > 0 ? this.showList[0].content : ''
+                },
+                getAdvantage:function(){
+                    console.log("getAdvantage")
+                    var self = this
+                    getAdvantage(this.selectedTitleId).then(function (data) {
+                        self.tabs = data.list
+                        self.showList = data.showList
+                        self.setCon()
+                    })
+                },
+                handleTabs:function( item){
+                    console.log("e :" , item)
+
+                    this.selectedTitleId = item.id
+                    this.getAdvantage()
+                },
+                handleSubMenu:function(item , sub){
+                    handleSubMenu(item , sub)
+                },
+                handlePhoneMenu:function (e) {
+                    handleSubMenuPhone(e, this.index)
+                }
+            }
+
+        })
+    }
+    /*
+    * content (string, optional): 内容 ,
+contenttype (string, optional): 1 富文本 3产品 4资料下载 5新闻 ,
+coverImg (string, optional): 封面 ,
+createTime (string, optional): 时间 ,
+field (string, optional),
+id (integer, optional): 主键 ,
+isDel (integer, optional),
+sort (integer, optional),
+subTitle (string, optional): 副标题 ,
+title (string, optional): 标题 ,
+type (integer, optional),
+typeName (string, optional)
+}
+    * */
+</script>
+</body>
+</html>
