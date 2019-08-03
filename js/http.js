@@ -32,7 +32,7 @@ function gethttp(url , params) {
                 message : !!data && !!data.message ? data.message : "获取数据失败"
             }
             error = addQuery(error , msg)
-            navPage(error)
+            // navPage(error)
             return
         }
     })
@@ -59,6 +59,15 @@ function getProduct(productId , pageNum) {
         "pageNum": pageNum
     }
     return gethttp(url)
+}
+function getNewsList(id , columnId , pageNum) {
+    var url = baseUrl + "/api/index/newsList"
+    var params = {
+        "id":id,
+        "columnId":columnId,
+        "pageNum": pageNum
+    }
+    return gethttp(url , params)
 }
 function getProductDes(productId) {
     var url = baseUrl + "/api/index/productDes"
