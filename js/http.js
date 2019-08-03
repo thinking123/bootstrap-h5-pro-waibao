@@ -32,11 +32,19 @@ function gethttp(url , params) {
                 message : !!data && !!data.message ? data.message : "获取数据失败"
             }
             error = addQuery(error , msg)
-            // navPage(error)
+            navPage(error)
             return
         }
     })
 }
+
+$(document).ajaxError(function myErrorHandler(event, xhr, ajaxOptions, thrownError) {
+    // alert("There was an ajax error!");
+
+
+    console.log("global error" , event)
+});
+
 function getKideDes(id , columnId) {
     var url = baseUrl + "/api/index/kideDes "
     var params = {
