@@ -110,11 +110,17 @@
 
                 var id = getParameterByName("id")
                 var columnId = getParameterByName("columnId")
+                var other = getParameterByName("other")
                 // var selectedTitleId = getParameterByName("sub")
                 this.selectedTitleId = columnId
                 this.id = id
 
-                this.getKideDes()
+                if(other){
+
+                }else{
+                    this.getKideDes()
+                }
+
 
 
             },
@@ -152,6 +158,15 @@
                     console.log("getKideDes")
                     var self = this
                     getKideDes(this.id , this.selectedTitleId).then(function (data) {
+                        self.tabs = data.list
+                        self.curContent = data
+
+                    })
+                },
+                getAdvantage:function(){
+                    console.log("getAdvantage")
+                    var self = this
+                    getKideDes(this.id).then(function (data) {
                         self.tabs = data.list
                         self.curContent = data
 

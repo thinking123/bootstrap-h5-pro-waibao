@@ -46,7 +46,7 @@
     </div>
     <div class="index1">
         <div>
-            <a v-for="item in listAdvantage" :key="item.id" href="javascript:void(0)">
+            <a v-for="item in listAdvantage" :key="item.id" @click="handleToPage(item.id)">
                 <div>
                     <div class="index1_img">
                         <div>
@@ -303,6 +303,12 @@
                     console.log("e :" , item)
                     navPage("./news_article.html?id=" + item.id)
 
+                },
+                handleToPage:function(id){
+                    url = "./about.html"
+                    url = formateUrl(url , "id" , item.id)
+                    url = formateUrl(url , "other" , true)
+                    navPage(url)
                 },
                 handleSubMenu:function(item , sub){
                     handleSubMenu(item , sub)
