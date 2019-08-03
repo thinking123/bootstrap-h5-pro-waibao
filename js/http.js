@@ -90,3 +90,10 @@ function getAdvantage(columnId) {
     }
     return gethttp(url , params)
 }
+function getFileList(pageNum) {
+    var url = baseUrl + "/api/index/fileList"
+    var params = {
+        "pageNum":pageNum
+    }
+    return gethttp(url , params)
+}

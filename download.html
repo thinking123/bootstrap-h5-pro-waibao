@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/global.css" rel="stylesheet"/>
+    <link href="css/index.css" rel="stylesheet"/>
+    <style></style>
+</head>
+<body>
+<div id="app">
+
+
+    <div id="header"></div>
+    <div class="neibanner" style="background:url(images/banner_news.jpg) no-repeat 50%; background-size: cover;"></div>
+    <div class="neipagename">
+        <div class="pagename_en">
+            File Download
+        </div>
+        <br/>
+        <div class="pagename_ch">
+            <div>
+                文件下载
+            </div>
+        </div>
+    </div>
+
+
+    <div class="newsline">
+        <a v-for="item in fileList" :key="item.id" :href="item.url" download>
+            <div class="newstime">
+<!--     <span>-->
+<!--      <div class="newstime_top">-->
+<!--       {{item.createTime | month}}-->
+<!--      </div>-->
+<!--      <div class="newstime_bot">-->
+<!--      {{item.createTime | year}}year-->
+<!--      </div> </span>-->
+            </div>
+            <div class="newtext">
+                <div class="newtitle">
+                    {{item.cnName}}
+                </div>
+                <div class="">
+                    {{item.createTime}}
+                </div>
+<!--                <div class="newsmall">-->
+<!--                    {{item.subTitle}}-->
+<!--                </div>-->
+            </div>
+            <div class="newsjiantou">
+                <img src="picture/bg25.png" class="newsjiantou1"/>
+                <img src="picture/bg26.png" class="newsjiantou2"/>
+            </div>
+        </a>
+
+
+        <div class="clear"></div>
+    </div>
+    <div class="pagess">
+        <ul>
+            <li @click="handleHome">首页</li>
+            <li v-for="i in pages" :key="i"
+                :class="{'active':i==pageNum}"
+                @click="handlePage(i)"
+            >{{i}}</li>
+
+            <!--                    <li class="thisclass">1</li>-->
+            <!--                    <li><a href="products.html">2</a></li>-->
+            <li><a @click="handleNext">下一页</a></li>
+            <li><a @click="handleEnd">末页</a></li>
+        </ul>
+    </div>
+    <div id="footer"></div>
+</div>
+
+<!--  <script src="js/require.js"></script>-->
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!--  <script src="js/npm.js"></script> -->
+<!--<script src="js/indexglobal.js"></script>-->
+<!--<script src="js/global.js"></script>-->
+<script src="js/http.js"></script>
+<script src="js/common.js"></script>
+
+<script>
+
+    // $(function () {
+    //     alert(typeof gethttp)
+    //     loadHeaderFooter(getVue)
+    // })
+
+
+    loadHeaderFooter(getVue)
+
+    function getVue() {
+        var app = new Vue({
+            el: '#app',
+            filters: {
+                year: function (t) {
+                    if(t && t.split('-').length == 3){
+                        return t.split('-')[0]
+                    }else{
+                        return ""
+                    }
+                },
+                month: function (t) {
+                    if(t && t.split('-').length == 3){
+                        return t.split('-')[1] + "-" + t.split('-')[2]
+                    }else{
+                        return ""
+                    }
+                },
+            },
+            data: function () {
+                return {
+                    pageName: 'index',
+                    // index:{},
+                    listCarousel: [],
+                    listAdvantage: [],
+                    listColumn: [],
+                    listProduct: [],
+                    webcompany: {},
+                    about: '',
+                    newsIndices: [{
+                        list: []
+                    }],
+
+
+                    pageNum: 1,
+                    pages: 0,
+                    total: 0,
+
+                    fileList: []
+
+                }
+            },
+            computed: {
+                pxbXun: function () {
+                    return {
+                        width: (this.listProduct.length * 283 + "px")
+                    }
+                },
+                newsItems1: function () {
+                    // alert("")
+                    // console.log('this.newsIndices[this.selectedNews]' , this.newsIndices[this.selectedNews])
+                    return this.newsIndices[this.selectedNews].list.slice(0)
+                }
+            },
+            mounted() {
+                var self = this;
+                getIndex().then(function (data) {
+                    console.log("load data jquery:", data)
+
+                    self.index = data;
+                    self.listCarousel = self.index.listCarousel;
+                    self.listAdvantage = self.index.listAdvantage;
+                    self.listProduct = self.index.listProduct;
+                    self.listColumn = self.index.listColumn;
+                    self.webcompany = self.index.webcompany;
+                    self.about = self.index.about;
+                    self.newsIndices = self.index.newsIndices;
+
+
+
+
+
+                    setTimeout(function () {
+                        loadBootstrap()
+                    }, 300)
+
+
+                })
+
+                this.getFileList()
+            },
+
+            methods: {
+                handleHome:function(){
+                    this.pageNum = 1;
+                    this.getFileList()
+                },
+                handlePage:function(i){
+
+                    this.pageNum = i + 1;
+                    this.getFileList()
+                },
+                handleNext:function(){
+                    if(i >= this.pages){
+                        return
+                    }
+                    this.pageNum += 1;
+                    this.getFileList()
+                },
+                handleEnd:function(){
+                    this.pageNum = this.pages;
+                    this.getFileList()
+                },
+
+                handleNewsItem: function (item) {
+                    console.log("e :", item)
+
+                },
+                handleSubMenu: function (item, sub) {
+                    handleSubMenu(item, sub)
+                },
+                handlePhoneMenu: function (e) {
+                    handleSubMenuPhone(e, this.index)
+                },
+                getFileList: function () {
+                    var self = this
+                    getFileList( this.pageNum).then(function (data) {
+                        console.log("prod news : ", data)
+
+                        self.fileList = data.list
+
+                        self.pageNum = data.pageUtil.pageNum
+                        self.pages = data.pageUtil.pages
+                        self.total = data.pageUtil.total
+
+                        setTimeout(function () {
+                            loadBootstrap()
+                        }, 300)
+                    })
+                },
+                handleToNews: function (id) {
+                    this.columnId = id
+                    this.pageNum = 1
+                    this.getFileList()
+                },
+                handleToDetail:function (id) {
+                    // navPage("./news_article.html?id=" + id)
+                    // location.href=
+                }
+            }
+
+        })
+    }
+
+</script>
+</body>
+</html>
