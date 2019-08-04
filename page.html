@@ -71,6 +71,11 @@
                     }],
                     selectedNews:0,
 
+                    hrefList:[],
+                    keepOnRecord:"",
+                    companyName:"",
+                    logo:"",
+
                     selectedTitleId:"",
                     tabs:[],
                     curContent:{},
@@ -118,6 +123,11 @@
                     self.webcompany = self.index.webcompany;
                     self.about = self.index.about;
                     self.newsIndices = self.index.newsIndices;
+
+                    self.hrefList = self.index.hrefList;
+                    self.keepOnRecord = self.index.keepOnRecord;
+                    self.companyName = self.index.companyName;
+                    self.logo = self.index.logo;
 
                     setTimeout(function () {
                         loadBootstrap()
