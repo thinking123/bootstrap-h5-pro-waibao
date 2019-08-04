@@ -58,11 +58,12 @@
                     Copyright&copy;某某机械设备有限公司(<a title="复制链接" href="javascript:copyURL();" target="_parent"
                                                  rel="nofollow">复制链接</a>) 某某机械设备有限公司
                     <br/>
-                    机械设备哪家强？机械设备哪家强？机械设备哪家强？机械设备哪家强？
-                    <br/>
-                    备案号：<a href="" target="_blank" rel="nofollow"></a>&nbsp;&nbsp;
+<!--                    机械设备哪家强？机械设备哪家强？机械设备哪家强？机械设备哪家强？-->
+<!--                    <br/>-->
+                    备案号：{{keepOnRecord}}<a href="" target="_blank" rel="nofollow"></a>&nbsp;&nbsp;
                     <div class="cityspread"><strong>热门城市推广: </strong>
-                        <a>常州</a><a>无锡</a><a>苏州</a><a>上海</a></div>
+                        <a v-for="(item,index) in hrefList" :key="index" :href="item.href">{{item.name}}</a>
+                       </div>
                 </div>
             </div>
         </div>
@@ -71,7 +72,7 @@
 <div class="phonefooternav visible-xs visible-sm">
     <ul @click="handlePhoneMenu($event)">
         <li>
-            <a rel="nofollow"  :href="webcompany.telephone">
+            <a rel="nofollow"  :href="'tel:'+webcompany.telephone">
                 <i class="glyphicon glyphicon-earphone"></i>
                 <span>一键拨号</span>
             </a>

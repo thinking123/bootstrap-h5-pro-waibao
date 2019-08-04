@@ -247,6 +247,12 @@
                     newsIndices: [
 
                     ],
+                    hrefList:[],
+                    keepOnRecord:"",
+                    companyName:"",
+                    logo:"",
+
+
                     newsList:[],
                     selectedNews:0,
                     selProTab:"",
@@ -294,8 +300,14 @@
                     self.listColumn = self.index.listColumn;
                     self.webcompany = self.index.webcompany;
                     self.about = self.index.about;
+
                     self.newsIndices = self.index.newsIndices;
                     self.newsList = self.newsIndices[self.selectedNews].list
+
+                    self.hrefList = self.index.hrefList;
+                    self.keepOnRecord = self.index.keepOnRecord;
+                    self.companyName = self.index.companyName;
+                    self.logo = self.index.logo;
 
 
                     self.newsList = []
