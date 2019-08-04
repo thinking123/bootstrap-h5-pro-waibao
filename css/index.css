@@ -46,3 +46,7 @@
     color: #fff;
     border: 1px solid #E12234;
 }
+
+a{
+    cursor: pointer;
+}

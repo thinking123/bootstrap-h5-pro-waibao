@@ -250,6 +250,7 @@
 
                     productList:[],
                     productTabs:[],
+                    firstLoad:false
                 }
             },
             computed: {
@@ -299,9 +300,14 @@
                     }
                     // self.productId =
 
-                    setTimeout(function () {
-                        loadBootstrap()
-                    }, 300)
+                    // if(self.firstLoad){
+                    //     setTimeout(function () {
+                    //         loadBootstrap()
+                    //     }, 300)
+                    //
+                    //     self.firstLoad = true
+                    // }
+
                 })
 
                 // this.getProduct()
@@ -314,6 +320,7 @@
                         console.log("prod" , data)
                         self.productList = data.list
                         self.productTabs = data.column.children
+                        // self.$forceUpdate()
                         // self.categoryName = data.column.categoryName
 
                         // self.pageNum = data.pageUtil.pageNum
@@ -323,6 +330,14 @@
                         // setTimeout(function () {
                         //     loadBootstrap()
                         // }, 300)
+
+                        if(!self.firstLoad){
+                            setTimeout(function () {
+                                loadBootstrap()
+                            }, 300)
+
+                            self.firstLoad = true
+                        }
                     })
                 },
                 handleProTabs:function(item){

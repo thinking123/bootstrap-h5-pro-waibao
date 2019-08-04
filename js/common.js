@@ -104,6 +104,7 @@ function handleSubMenu(item , sub) {
             url = formateUrl(url , "id" , sub.id)
             break
         case 4:
+            url = "./download.html"
             break
         case 5:
             url = "./news.html"
