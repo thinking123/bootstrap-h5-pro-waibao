@@ -135,12 +135,15 @@
         </div>
         <div class="clear"></div>
         <div class="indexabout_box">
-            <div class="indexabout_text fl" v-html="about">
-                <p style="text-align:center;"><a href="about.html" class="indexabout_link">查看详细&gt;&gt;</a></p>
+            <div class="indexabout_text fl">
+                <div  v-html="about">
+
+                </div>
+                <p style="text-align:center;"><a @click="handleToDetail1" class="indexabout_link">查看详细&gt;&gt;</a></p>
             </div>
-            <div class="indexabout_img fr">
-                <img src="picture/tupian5.jpg"/>
-            </div>
+<!--            <div class="indexabout_img fr">-->
+<!--                <img src="picture/tupian5.jpg"/>-->
+<!--            </div>-->
             <div class="clear"></div>
         </div>
         <div class="iaov">
@@ -355,6 +358,13 @@
 
 
                     navPage(url)
+                },
+                handleToDetail1:function(){
+                    for(item of this.index.listColumn){
+                        if(item.categoryState == 1 && item.children.length > 0){
+                            return handleSubMenu(item , item.children[0])
+                        }
+                    }
                 },
                 handleSubMenu:function(item , sub){
                     handleSubMenu(item , sub)
