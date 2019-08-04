@@ -77,7 +77,7 @@
         </div>
         <div class="clear"></div>
         <div class="prosel">
-            <div class="prosel_nei" v-for="item in proTabs" :key="item.id" @click="handleProTabs" :class="{'on':selProTab==item.id}">
+            <div class="prosel_nei" v-for="item in productTabs" :key="item.id" @click="handleProTabs(item.id)" >
                 <div>
                     {{item.categoryName}}
                 </div>
@@ -103,7 +103,7 @@
                     <div class="pxb_xun" :style="pxbXun">
 
 
-                        <a @click="handeToPro(item.id)" v-for="item in listProduct" :key="item.id">
+                        <a @click="handeToPro(item.id)" v-for="item in productList" :key="item.id">
                             <div class="pxb_xun_img sHoverItem">
                                 <div class="ban sIntro">
                                     <img src="picture/bg23.png"/>
@@ -180,7 +180,7 @@
                         <div class="newsxxk_title">
                             {{item.title}}
                         </div>
-                        <div class="newsxxk_small" v-html="item.content.slice(0,73)+'...'">
+                        <div class="newsxxk_small" v-html="item.subTitle">
 
                         </div>
                     </div>
@@ -246,7 +246,10 @@
                     ],
                     newsList:[],
                     selectedNews:0,
-                    selProTab:""
+                    selProTab:"",
+
+                    productList:[],
+                    productTabs:[],
                 }
             },
             computed: {
@@ -259,9 +262,9 @@
                     console.log('this.newsIndices[this.selectedNews]' ,this.newsIndices[this.selectedNews].list)
                     return this.newsIndices[this.selectedNews].list
                 },
-                newsItems2:function () {
-                    return this.newsIndices[this.selectedNews].list.slice(2)
-                },
+                // newsItems2:function () {
+                //     return this.newsIndices[this.selectedNews].list.slice(2)
+                // },
                 proTabs:function () {
                     for(item of this.listColumn){
                         if(item.categoryState == 3){
@@ -288,16 +291,43 @@
                     self.newsList = self.newsIndices[self.selectedNews].list
 
 
+                    for(item of self.listColumn){
+                        if(item.categoryState == 3 && item.children.length > 0){
+                            self.productId = item.children[0].id
+                            self.getProduct()
+                        }
+                    }
+                    // self.productId =
 
                     setTimeout(function () {
                         loadBootstrap()
                     }, 300)
                 })
+
+                // this.getProduct()
             },
 
             methods: {
+                getProduct:function () {
+                    var self = this
+                    getProduct(this.productId , 1).then(function (data) {
+                        console.log("prod" , data)
+                        self.productList = data.list
+                        self.productTabs = data.column.children
+                        // self.categoryName = data.column.categoryName
+
+                        // self.pageNum = data.pageUtil.pageNum
+                        // self.pages = data.pageUtil.pages
+                        // self.total = data.pageUtil.total
+
+                        setTimeout(function () {
+                            loadBootstrap()
+                        }, 300)
+                    })
+                },
                 handleProTabs:function(item){
-                    this.selProTab = item.id
+                    this.productId = item
+                    this.getProduct()
                 },
                 handleNewsItem:function( item){
                     console.log("e :" , item)

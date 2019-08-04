@@ -93,7 +93,7 @@ function getProduct(productId , pageNum) {
         "productId":productId,
         "pageNum": pageNum
     }
-    return gethttp(url)
+    return gethttp(url , params)
 }
 function getNewDes(id) {
     var url = baseUrl + "/api/index/advantageDetails"

@@ -264,6 +264,8 @@ function loadBootstrap() {
         if($(".prosel_nei div").length == 0){
             return
         }
+
+        // return;
         $(".prosel_nei div").eq(ind).addClass("on");
         $(".proxxk_xun").eq(ind).show();
         var ml=$(".prosel_nei div.on").offset().left;
@@ -282,14 +284,22 @@ function loadBootstrap() {
         });
 
         $(".prosel_nei div").click(function(){
-            ind=$(this).index();
-            $(this).addClass("on").siblings().removeClass("on");
+            console.log("you lick")
+            var t = $(this).closest(".prosel_nei")
+            var tIndex = $(this).closest(".prosel_nei").index();
+            console.log("t index" , tIndex)
+
+            t.children("div:first-child").addClass("on")
+            t.siblings().children("div:first-child").removeClass("on")
+
+            // ind=$(this).index();
+            // $(this).addClass("on").siblings().removeClass("on");
 
             ml=$(".prosel_nei div.on").offset().left;
             w=$(".prosel_nei div.on").width();
             $(".prosel_xian div").css({"margin-left":ml,"width":w});
-            $(".proxxk_xun").hide();
-            $(".proxxk_xun").eq(ind).show();
+            // $(".proxxk_xun").hide();
+            // $(".proxxk_xun").eq(ind).show();
 
         });
 
