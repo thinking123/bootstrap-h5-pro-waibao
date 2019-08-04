@@ -252,13 +252,13 @@ function loadBootstrap() {
     $(document).ready(function(e) {
         var ind=0;
         $(".newssel_nei_op").eq(ind).addClass("on");
-        $(".newsxxk").hide();
-        $(".newsxxk").eq(ind).show();
+        // $(".newsxxk").hide();
+        // $(".newsxxk").eq(ind).show();
         $(".newssel_nei_op").click(function(){
             ind=$(this).index();
             $(this).addClass("on").siblings().removeClass("on");
-            $(".newsxxk").hide();
-            $(".newsxxk").eq(ind).show();
+            // $(".newsxxk").hide();
+            // $(".newsxxk").eq(ind).show();
         });
     });
 //首页产品中心选项卡切换
