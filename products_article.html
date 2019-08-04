@@ -182,7 +182,7 @@
                     }
                 },
                 handleNews: function (item) {
-
+                    navPage("./news_article.html?id=" + item.id)
                 },
                 handlePre: function () {
                     if (this.upper && this.upper.isHas == 1) {
@@ -195,7 +195,7 @@
                     }
                 },
                 handleProDetails: function (id) {
-                    navPage("./products_article.html?id=" + this.lower.id)
+                    navPage("./products_article.html?id=" + id)
                 },
                 handleNewsItem: function (item) {
                     console.log("e :", item)
