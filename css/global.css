@@ -146,12 +146,12 @@ font-size:14px;
 	text-align: center;
 }
 .pctop2 .pcmenu a:hover {
-	color: #df0f0f;
-	border-bottom: #df0f0f solid 3px;
+	color: #479c18;
+	border-bottom: #479c18 solid 3px;
 }
 .pctop2 .pcmenu a.on {
-	color: #df0f0f;
-	border-bottom: #df0f0f solid 3px;
+	color: #479c18;
+	border-bottom: #479c18 solid 3px;
 }
 .neibanner {
 	width: 100%;
@@ -245,7 +245,8 @@ body {
 	width: 100%;
 	transition: all ease 0.3s;
 	height: 0px;
-	background: rgba(223,15,15,0.6);
+	/*background: rgba(223,15,15,0.6);*/
+	background: rgba(70, 156, 24,0.6);
 	transition: all ease 0.3s;
 	position: absolute;
 	z-index: 99;
@@ -287,12 +288,12 @@ body {
 }
 .pcto .pcto_menu_xun:hover .pcto_menu_a {
 	transition: all ease 0.3s;
-	color: #df0f0f;
-	border-bottom: #df0f0f solid 3px;
+	color: #479c18;
+	border-bottom: #479c18 solid 3px;
 }
 .pcto .pcto_menu_xun.on .pcto_menu_a {
-	color: #df0f0f;
-	border-bottom: #df0f0f solid 3px;
+	color: #479c18;
+	border-bottom: #479c18 solid 3px;
 }
 .pcto_menu_a {
 }
@@ -308,7 +309,7 @@ body {
 	display: inline-block;
 	line-height: 45px;
 	font-size: 13px;
-	color: #fec8c8;
+	color: white;
 	text-align: center;
 }
 .pcto_menu_xun:hover .pcto_bg {
@@ -371,7 +372,7 @@ body {
 	background-repeat: no-repeat;
 }
 .footer .footer1 .footer1_xun2 .bdsharebuttonbox a:hover {
-	background-color: #e10808;
+	background-color: #479c18;
 }
 .footer .footer1 .footer1_xun1 .footer1_xun1_box {
 	width: 100%;
@@ -481,12 +482,12 @@ body {
 	margin: 0 8px;
 }
 .neimenu div a:hover {
-	color: #de0a1e;
-	border: #de0a1e solid 1px;
+	color: #479c18;
+	border: #479c18 solid 1px;
 }
 .neimenu div a.on {
-	color: #de0a1e;
-	border: #de0a1e solid 1px;
+	color: #479c18;
+	border: #479c18 solid 1px;
 }
 .about {
 	width: 1100px;
@@ -526,7 +527,7 @@ body {
 	color: #FFFFFF;
 	text-align: center;
 	line-height: 33px;
-	background: #df0f0f;
+	background: #479c18;
 	right: 0;
 	display: inline-block;
 	top: 13px;
@@ -590,7 +591,7 @@ body {
 }
 .newsline a .newstime .newstime_top {
 	font-size: 47px;
-	color: #f73232;
+	color: #479c18;
 	line-height: 50px;
 }
 .newsline a .newstime .newstime_bot {
@@ -666,11 +667,11 @@ body {
 	color: #999999;
 }
 .fenye .fenye_nei a:hover {
-	background: #f73232;
+	background: #479c18;
 	color: #fff;
 }
 .fenye .fenye_nei a.on {
-	background: #f73232;
+	background: #479c18;
 	color: #fff;
 }
 .con1 {
@@ -778,8 +779,8 @@ body {
 	float: left;
 	padding: 0 17px;
 	font-size: 16px;
-	color: #e10808;
-	border: #e10808 solid 1px;
+	color: #479c18;
+	border: #479c18 solid 1px;
 	background: #FFFFFF;
 }
 .probox {
@@ -825,12 +826,12 @@ body {
 }
 .probox .probox_left .proleft_xiala a.on {
 	background: url(../images/bg24.png) no-repeat 209px 50%, #faf5f5;
-	border-left: #cb1717 solid 4px;
+	border-left: #479c18 solid 4px;
 	padding-left: 36px;
 }
 .probox .probox_left .proleft_xiala a:hover {
 	background: url(../images/bg24.png) no-repeat 209px 50%, #faf5f5;
-	border-left: #cb1717 solid 4px;
+	border-left: #479c18 solid 4px;
 	padding-left: 36px;
 }
 .probox .probox_right {
@@ -859,7 +860,7 @@ body {
 	transition: all .5s;
 }
 .probox .probox_right .proboxline .proboxline_box a:hover {
-	border-bottom: #cb1717 solid 4px;
+	border-bottom: #479c18 solid 4px;
 }
 .probox .probox_right .proboxline .proboxline_box a .proimg_img {
 	width: 100%;
@@ -887,7 +888,7 @@ body {
 	background: url(../images/bg31.png) no-repeat 100% 50%;
 }
 .probox .probox_right .proboxline .proboxline_box a:hover .proimg_title {
-	color: #cb1717;
+	color: #479c18;
 }
 .proxiala {
 	display: none;
@@ -1090,7 +1091,7 @@ body {
 	margin: 0 3px;
 }
 #ban ul.ul_dian li.licurr {
-	background: #ea1915;
+	background: #479c18;
 }
 .dian {
 	width: 100%;
@@ -1190,7 +1191,7 @@ body {
 .index1 div a .index1_bottom div {
 	width: 40px;
 	height: 3px;
-	background: #e81816;
+	background: #479c18;
 }
 .indexpro {
 	width: 100%;
@@ -1229,12 +1230,12 @@ body {
 }
 .prosel_xian div {
 	float: left;
-	background: #fd1717;
+	background: #479c18;
 	height: 2px;
 	transition: all ease 0.25s;
 }
 .prosel .prosel_nei div.on, .prosel .prosel_nei div:hover {
-	color: #fd1717;
+	color: #479c18;
 }
 .proxxk {
 	width: 1100px;
@@ -1297,7 +1298,7 @@ body {
 }
 .proxxk .proxxk_xun .pxb_xun a .pxb_xun_img .ban {
 	position: absolute;
-	background: rgba(199,5,5,0.55);
+	background: rgba(70, 156, 24,0.55);
 	width: 100% !important;
 	height: 225px !important;
 	-webkit-align-items: center;
@@ -1346,7 +1347,7 @@ body {
 	color: #FFFFFF;
 	font-size: 15px;
 	text-transform: uppercase;
-	background: #e10808;
+	background: #479c18;
 	margin-top: 25px;
 }
 .indexabout .indexabout_box.on {
@@ -1391,12 +1392,12 @@ body {
 }
 .indexnews .newssel .newssel_nei .newssel_nei_op.on {
 	background: #FFFFFF;
-	color: #c70505;
+	color: #479c18;
 	font-weight: bolder;
 }
 .indexnews .newssel .newssel_nei .newssel_nei_op:hover {
 	background: #FFFFFF;
-	color: #c70505;
+	color: #479c18;
 	font-weight: bolder;
 }
 .indexnesqiehuan {
@@ -1436,7 +1437,7 @@ body {
 	line-height: 28px;
 	width: 100%;
 	font-size: 12px;
-	color: #c70505;
+	color: #479c18;
 }
 .indexnesqiehuan .newsxxk a .newsxxk_text .newsxxk_title {
 	font-size: 14px;
@@ -1457,7 +1458,7 @@ body {
 	overflow: hidden;
 }
 .indexnesqiehuan .newsxxk a:hover .newsxxk_text .newsxxk_title {
-	color: #c70505;
+	color: #479c18;
 }
 .sss {
 	display: none !important;
@@ -1495,7 +1496,7 @@ body {
 	transition: all ease 0.3s;
 }
 .fancybox:hover .honor_title {
-	color: #de0a1e;
+	color: #479c18;
 }
 .fancybox-wrap {
 	overflow: visible !important;
@@ -1667,7 +1668,7 @@ body {
 .newsline a:hover {
 	padding-left: 0px;
 	transition: all ease 0.3s;
-	background: #f73232;
+	background: #479c18;
 }
 .newsline a:hover .newstime_top {
 	color: #FFFFFF;
@@ -1693,7 +1694,7 @@ body {
 	transition: all ease 0.3s;
 }
 .index1 div a:hover .index1_img div {
-	background: #e81816;
+	background: #479c18;
 }
 .proxxk .proxxk_xun .proxxk_xun_sel div .img2 {
 	display: none;
@@ -1705,7 +1706,7 @@ body {
 	display: block;
 }
 .proxxk .proxxk_xun .pxb_xun a:hover {
-	border-bottom: #c70505 solid 2px;
+	border-bottom: #479c18 solid 2px;
 }
 }
  @media screen and (max-width:1040px) {
@@ -2070,9 +2071,9 @@ body {
 }
 .pagess {clear: both;margin: 20px;overflow: hidden;margin-left: 0px;text-align: center;font-size:12px}
 .pagess ul li { display:inline-block;border: 1px solid #ccc;padding: 2px 9px;margin: 0 3px;line-height: 20px;background: #fff;color:#999}
-.pagess ul li:hover{ background:#E12234; color:#fff;border: 1px solid #E12234}
+.pagess ul li:hover{ background:#479c18; color:#fff;border: 1px solid #479c18}
 .pagess ul li:hover a{color:#fff;}
-.pagess ul li.thisclass {display: inline-block;border: 1px solid #E12234;padding: 2px 9px;margin: 0 3px;background: #E12234;color: #fff;}
+.pagess ul li.thisclass {display: inline-block;border: 1px solid #479c18;padding: 2px 9px;margin: 0 3px;background: #479c18;color: #fff;}
 .pagess ul li.thisclass a {color: #fff;}
 .pagess ul li a{ display:block;color:#999}
 .pagess ul li a:hover {color: #fff;}
@@ -2106,10 +2107,10 @@ body {
 	margin: 20px 0;
 }
 .related_list a:hover{
-	color: #df0f0f;
+	color: #479c18;
 }
 .related_cp a:hover{
-	color: #df0f0f;
+	color: #479c18;
 }
 .smcy{
 	line-height: 30px;

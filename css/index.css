@@ -8,7 +8,7 @@
 
 .newssel_nei_op.active{
     background: #FFFFFF;
-    color: #c70505 !important;
+    color: #479c18 !important;
     font-weight: bolder;
 }
 
@@ -26,25 +26,25 @@
 
 
 .neimenu a.active{
-    color: #de0a1e;
-    border: #de0a1e solid 1px;
+    color: #479c18;
+    border: #479c18 solid 1px;
 }
 
 .proleft_xiala a.active{
     background: url(../images/bg24.png) no-repeat 209px 50%, #faf5f5;
-    border-left: #cb1717 solid 4px;
+    border-left: #479c18 solid 4px;
     padding-left: 36px;
 }
 
 .neimenu a.active{
-    color: #de0a1e;
-    border: #de0a1e solid 1px;
+    color: #479c18;
+    border: #479c18 solid 1px;
 }
 
 .pagess li.active{
-    background: #E12234;
+    background: #479c18;
     color: #fff;
-    border: 1px solid #E12234;
+    border: 1px solid #479c18;
 }
 
 a{
@@ -53,6 +53,7 @@ a{
 
 .about>p{
     cursor: pointer;
+    /*color: #479c18;*/
 }
 
 .related_cp img{
