@@ -57,9 +57,10 @@
             <ul class="row">
                 <li class="col-md-3 col-sm-6 text-center"
                     v-for="item in listPro" :key="item.id"
+                    @click="handleProDetails(item.id)"
                 >
                     <div><img :src="item.cover" class="img-responsive"></div>
-                    <span><a @click="handleProDetails(item.id)">{{item.pname}}</a></span>
+                    <span><a >{{item.pname}}</a></span>
                 </li>
 
             </ul>

@@ -50,3 +50,11 @@
 a{
     cursor: pointer;
 }
+
+.about>p{
+    cursor: pointer;
+}
+
+.related_cp img{
+    cursor: pointer;
+}
