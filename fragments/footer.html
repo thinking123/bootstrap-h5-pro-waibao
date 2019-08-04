@@ -55,15 +55,17 @@
         <div class="container">
             <div class="row clearfix">
                 <div class="copyright col-md-12 column text-center">
-                    Copyright&copy;某某机械设备有限公司(<a title="复制链接" href="javascript:copyURL();" target="_parent"
-                                                 rel="nofollow">复制链接</a>) 某某机械设备有限公司
+                    {{companyName}}(<a title="复制链接" href="javascript:copyURL();" target="_parent"
+                                                 rel="nofollow">复制链接</a>)
                     <br/>
 <!--                    机械设备哪家强？机械设备哪家强？机械设备哪家强？机械设备哪家强？-->
 <!--                    <br/>-->
-                    备案号：{{keepOnRecord}}<a href="" target="_blank" rel="nofollow"></a>&nbsp;&nbsp;
-                    <div class="cityspread"><strong>热门城市推广: </strong>
+                    <div class="cityspread"><strong>友情链接: </strong>
                         <a v-for="(item,index) in hrefList" :key="index" :href="item.href">{{item.name}}</a>
-                       </div>
+                    </div>
+
+                    备案号：{{keepOnRecord}}<a href="" target="_blank" rel="nofollow"></a>&nbsp;&nbsp;
+
                 </div>
             </div>
         </div>

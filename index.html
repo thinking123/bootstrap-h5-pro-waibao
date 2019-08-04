@@ -46,7 +46,7 @@
     </div>
     <div class="index1">
         <div>
-            <a v-for="item in listAdvantage" :key="item.id" @click="handleToPage(item.id)">
+            <a v-for="item in listAdvantage" :key="item.id" @click="handleToPage(item)">
                 <div>
                     <div class="index1_img">
                         <div>
@@ -369,8 +369,12 @@
                     navPage("./news_article.html?id=" + item.id)
 
                 },
-                handleToPage:function(id){
-                    url = "./page.html"
+                handleToPage:function(item){
+                    var id = item.id
+                    if(item.standardName == 4){
+                        return navPage("./download.html")
+                    }
+                    var url = "./page.html"
                     url = formateUrl(url , "id" , id)
 
 

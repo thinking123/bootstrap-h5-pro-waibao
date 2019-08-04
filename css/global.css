@@ -1329,7 +1329,8 @@ body {
 	max-width: 100%;
 }
 .indexabout .indexabout_box .indexabout_text {
-	width: 636px;
+	/*width: 636px;*/
+	margin: 0 20px;
 	font-size: 14px;
 	color: #606060;
 	text-indent: 2em;
