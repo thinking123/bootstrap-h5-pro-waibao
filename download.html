@@ -189,11 +189,11 @@
                 },
                 handlePage:function(i){
 
-                    this.pageNum = i + 1;
+                    this.pageNum = i;
                     this.getFileList()
                 },
                 handleNext:function(){
-                    if(i >= this.pages){
+                    if(this.pages <= this.pageNum){
                         return
                     }
                     this.pageNum += 1;

@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="probox_right">
-            <div class="description" style="text-indent: 2em;margin-bottom: 10px;">这里是产品描述，可以在后台对应的板块添加</div>
+<!--            <div class="description" style="text-indent: 2em;margin-bottom: 10px;">这里是产品描述，可以在后台对应的板块添加</div>-->
             <div class="proboxline">
                 <div class="proboxline_box">
                     <a
@@ -77,7 +77,7 @@
                 <ul>
                     <li @click="handleHome">首页</li>
                     <li v-for="i in pages" :key="i"
-                    :class="{'thisclass':i==pageNum+1}"
+                    :class="{'thisclass':i==pageNum}"
                         @click="handlePage(i)"
                     >{{i}}</li>
 
@@ -172,10 +172,13 @@
                     this.getProduct()
                 },
                 handlePage:function(i){
-                    this.pageNum = i + 1;
+                    this.pageNum = i;
                     this.getProduct()
                 },
                 handleNext:function(){
+                    if(this.pages <= this.pageNum){
+                        return
+                    }
                     this.pageNum += 1;
                     this.getProduct()
                 },
