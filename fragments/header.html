@@ -13,6 +13,11 @@
     <div class="pcto_box pc">
 <!--        <a href="" class="fl pcto_logo"><img src="picture/logo.png" height="55"/></a>-->
         <div class="pcto_menu">
+            <div class="pcto_menu_xun yxl">
+                <a class="pcto_menu_a" href="index.html">首页</a>
+<!--                <div class="pcto_bg"></div>-->
+            </div>
+
             <div class="pcto_menu_xun yxl " :class="{'yxl':(item.children && item.children.length > 0)}"
                  v-for="item in listColumn" :key="item.id">
                 <a class="pcto_menu_a">{{item.categoryName}}</a>

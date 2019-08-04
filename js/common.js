@@ -206,6 +206,7 @@ function loadBootstrap() {
     });
     $(".moxl_xun_img1").click(function(){
         // alert('click')
+        console.log("click")
         $(".moxl_xun_img1").show();
         $(this).hide();
         $(".moxl_xun_img2").hide();
@@ -220,6 +221,7 @@ function loadBootstrap() {
         }
     });
     $(".moxl_xun_img2").click(function(){
+        console.log("click dsf")
         $(".moxl_xun_img1").show();
         $(this).hide();
         $(".moxl_xun_img2").hide();
