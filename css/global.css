@@ -328,7 +328,10 @@ body {
 	padding-top: 100px;
 }
 .footer .footer1 {
-	width: 1100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	/*width: 1100px;*/
 	margin: 0 auto;
 	min-height: 240px;
 }
