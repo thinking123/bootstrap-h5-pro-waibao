@@ -261,6 +261,7 @@ body {
 	width: 1100px;
 	margin: 0 auto;
 	height: 112px;
+	background-color: white;
 }
 .pcto_box .pcto_logo {
 	display: inline-block;
@@ -332,8 +333,8 @@ body {
 	min-height: 240px;
 }
 .footer .footer1 .footer1_xun1 {
-	width: 145px;
-	margin-right: 40px;
+	width: 105px;
+	/*margin-right: 40px;*/
 }
 .footer .footer1_title {
 	height: 35px;
