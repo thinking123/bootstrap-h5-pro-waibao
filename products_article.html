@@ -18,7 +18,10 @@
     <div id="header"></div>
 
 
-    <div class="neibanner" style="background:url(images/banner_news.jpg) no-repeat 50%; background-size: cover;"></div>
+    <div class="neibanner"
+
+         v-bind:style="{ backgroundImage: 'url(' + background + ')' }"
+         style="background: no-repeat 50%; background-size: cover;"></div>
     <div class="newsnav">
         <span>您当前的位置:</span>
         <a href="index.html">主页</a> &gt;
@@ -121,6 +124,7 @@
                     createtime: '',
                     nowColum: '',
                     pname: '',
+                    background:''
                 }
             },
             computed: {
@@ -220,6 +224,7 @@
                         self.nowColum = data.nowColum
                         self.pname = data.pname
 
+                        self.background = data.background
                         setTimeout(function () {
                             loadBootstrap()
                         }, 300)

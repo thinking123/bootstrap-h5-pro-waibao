@@ -19,7 +19,7 @@
 
 
  <div class="neibanner"
-      v-bind:style="{ backgroundImage: 'url(' + coverImg + ')' }"
+      v-bind:style="{ backgroundImage: 'url(' + background + ')' }"
       style="background: no-repeat 50%; background-size: cover;"></div>
  <div class="newsnav">
   <span>您当前的位置:</span>
@@ -128,7 +128,7 @@
      createTime:"",
      title:"",
      typeName:"",
-
+     background:''
     }
    },
    computed: {
@@ -231,7 +231,7 @@
       self.createTime = data.createTime
       self.title = data.title
       self.typeName = data.typeName
-
+      self.background = data.background
       setTimeout(function () {
        loadBootstrap()
       }, 300)
