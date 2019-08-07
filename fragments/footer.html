@@ -13,9 +13,9 @@
         </div>
 
         <div class="fr footer1_xun2">
-            <div class="footer1_title">
-                联系我们
-            </div>
+<!--            <div class="footer1_title">-->
+<!--                联系我们-->
+<!--            </div>-->
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                 <tr>
@@ -26,7 +26,9 @@
                 </tr>
                 <tr>
                     <td align="right" height="25" class="footericon"><img src="picture/bg9.png"/></td>
-                    <td><span>公司地址：{{webcompany.address}}</span></td>
+                    <td>
+                        <span v-for="item in (webcompany.address ? webcompany.address.split('\n') : [])">公司地址：{{item}}</span>
+                    </td>
                 </tr>
                 <tr>
                     <td align="right" height="25" class="footericon"><img src="picture/bg10.png"/></td>
